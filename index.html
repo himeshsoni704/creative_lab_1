@@ -1252,8 +1252,8 @@
         }
 
         .adv-av {
-            width: 32px;
-            height: 32px;
+            width: 38px;
+            height: 38px;
             border-radius: 50%;
             background: var(--surface2);
             border: 1px solid var(--border);
@@ -1264,7 +1264,14 @@
             font-weight: 600;
             color: var(--text-d);
             flex-shrink: 0;
+            overflow: hidden;
             transition: background .4s, border-color .4s
+        }
+
+        .adv-av img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .adv-name {
@@ -1622,7 +1629,9 @@
                 <p class="hero-sub">Workshop on QoS-Aware Security and Privacy for AI-Driven Digital Twin and Metaverse
                     Systems (QSP-AI-MetaTwin). Co-located with IWQoS 2026.</p>
                 <div class="hero-actions">
-                    <a class="btn-primary" href="https://edas.info/login.php?rurl=aHR0cHM6Ly9lZGFzLmluZm8vbmV3UGFwZXIucGhwP2M9MzUwMzkmdHJhY2s9MTM2NDc5" target="_blank" rel="noopener">Submit Paper →</a>
+                    <a class="btn-primary"
+                        href="https://edas.info/login.php?rurl=aHR0cHM6Ly9lZGFzLmluZm8vbmV3UGFwZXIucGhwP2M9MzUwMzkmdHJhY2s9MTM2NDc5"
+                        target="_blank" rel="noopener">Submit Paper →</a>
                     <a class="btn-ghost" href="#cfp">Call for Papers</a>
                 </div>
             </div>
