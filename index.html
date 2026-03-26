@@ -2,2157 +2,2165 @@
 <html lang="en" data-theme="dark">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Agentic AI for IoT — IEEE MENACOM 2026</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@400;500&display=swap"
-    rel="stylesheet" />
-  <style>
-    @font-face {
-      font-family: 'Geist';
-      src: url('https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/fonts/geist-sans/Geist-Light.woff2') format('woff2');
-      font-weight: 300;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: 'Geist';
-      src: url('https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/fonts/geist-sans/Geist-Regular.woff2') format('woff2');
-      font-weight: 400;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: 'Geist';
-      src: url('https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/fonts/geist-sans/Geist-Medium.woff2') format('woff2');
-      font-weight: 500;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: 'Geist';
-      src: url('https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/fonts/geist-sans/Geist-SemiBold.woff2') format('woff2');
-      font-weight: 600;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: 'Geist';
-      src: url('https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/fonts/geist-sans/Geist-Bold.woff2') format('woff2');
-      font-weight: 700;
-      font-display: swap;
-    }
-
-    /* ── TOKENS ── */
-    :root {
-      --pixel: 'Pixelify Sans', monospace;
-      --body: 'Geist', 'DM Sans', sans-serif;
-      --mono: 'DM Mono', monospace;
-      --accent: #3b82f6;
-      --accent-text: #ffffff;
-      --btn-bg: var(--accent);
-      --btn-text: #ffffff;
-      --accent-glow: rgba(59, 130, 246, .22);
-      --radius: 10px;
-    }
-
-    /* ── DARK ── */
-    [data-theme="dark"] {
-      --bg: #080a0f;
-      --surface: #0d1017;
-      --surface2: #131820;
-      --card: #0d1017;
-      --border: rgba(255, 255, 255, .07);
-      --border-h: rgba(255, 255, 255, .18);
-      --text: #e8eaf0;
-      --text-m: rgba(232, 234, 240, .48);
-      --text-d: rgba(232, 234, 240, .22);
-      --btn-bg: #ffffff;
-      --btn-text: #080a0f;
-      --nav-bg: rgba(8, 10, 15, .93);
-      --grid-col: rgba(255, 255, 255, .025);
-      --glow1: rgba(59, 130, 246, .18);
-      --glow2: rgba(99, 102, 241, .12);
-      --shadow: rgba(0, 0, 0, .3);
-      --tog-track: #1a2030;
-    }
-
-    /* ── LIGHT ── */
-    [data-theme="light"] {
-      --bg: #f0f4f8;
-      --surface: #ffffff;
-      --surface2: #e2e8f0;
-      --card: #ffffff;
-      --border: rgba(15, 23, 42, .12);
-      --border-h: rgba(15, 23, 42, .28);
-      --text: #0f172a;
-      --text-m: #475569;
-      --text-d: #64748b;
-      --accent: #fbbf24;
-      --accent-text: #0f172a;
-      --btn-bg: #0f172a;
-      --btn-text: #ffffff;
-      --nav-bg: rgba(240, 244, 248, .85);
-      --grid-col: rgba(15, 23, 42, .06);
-      --glow1: rgba(251, 191, 36, 0.18);
-      --glow2: rgba(251, 191, 36, 0.14);
-      --shadow: rgba(15, 23, 42, .1);
-      --tog-track: #cbd5e1;
-    }
-
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0
-    }
-
-    html {
-      scroll-behavior: smooth
-    }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--body);
-      font-size: 15px;
-      line-height: 1.65;
-      overflow-x: hidden;
-      transition: background .45s ease, color .35s ease;
-    }
-
-    body::after {
-      content: '';
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 9999;
-      opacity: .35;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-    }
-
-    ::-webkit-scrollbar {
-      width: 4px
-    }
-
-    ::-webkit-scrollbar-track {
-      background: var(--bg)
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: var(--border-h);
-      border-radius: 2px
-    }
-
-    /* ── PIXELIFY: only big display h1/h2 ── */
-    h1.hero-title,
-    h2.section-title {
-      font-family: var(--pixel);
-      font-weight: 700;
-      line-height: 1.08;
-      letter-spacing: .01em;
-      color: var(--text);
-      transition: color .35s;
-    }
-
-    /* everything else uses Geist */
-
-    /* ── NAV ── */
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 200;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 2rem;
-      height: 60px;
-      transition: background .3s, border-color .3s, backdrop-filter .3s;
-    }
-
-    nav.scrolled {
-      background: var(--nav-bg);
-      backdrop-filter: blur(18px) saturate(180%);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav-logo {
-      font-family: var(--body);
-      font-weight: 100;
-      font-size: 20px;
-      color: var(--text);
-      text-decoration: none;
-      transition: color .3s
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none
-    }
-
-    .nav-links a {
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      color: var(--text-m);
-      text-decoration: none;
-      transition: color .2s;
-      position: relative;
-    }
-
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: -3px;
-      width: 0;
-      height: 1px;
-      background: var(--accent);
-      transition: width .25s
-    }
-
-    .nav-links a:hover {
-      color: var(--text)
-    }
-
-    .nav-links a:hover::after {
-      width: 100%
-    }
-
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: .85rem
-    }
-
-    /* ── THEME TOGGLE ── */
-    .theme-toggle {
-      position: relative;
-      width: 52px;
-      height: 27px;
-      border-radius: 14px;
-      background: var(--tog-track);
-      border: 1px solid var(--border);
-      cursor: pointer;
-      flex-shrink: 0;
-      overflow: hidden;
-      transition: background .4s, border-color .4s;
-    }
-
-    .theme-toggle:hover {
-      border-color: var(--border-h)
-    }
-
-    .tog-icons {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 5px;
-      pointer-events: none;
-      font-size: 11px;
-    }
-
-    .tog-icons span {
-      transition: opacity .3s
-    }
-
-    [data-theme="dark"] .tog-sun {
-      opacity: .2
-    }
-
-    [data-theme="dark"] .tog-moon {
-      opacity: .85
-    }
-
-    [data-theme="light"] .tog-sun {
-      opacity: .9
-    }
-
-    [data-theme="light"] .tog-moon {
-      opacity: .2
-    }
-
-    .tog-knob {
-      position: absolute;
-      top: 3px;
-      left: 3px;
-      width: 19px;
-      height: 19px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent), #818cf8);
-      box-shadow: 0 2px 8px var(--accent-glow);
-      transition: transform .42s cubic-bezier(.34, 1.56, .64, 1), box-shadow .3s;
-    }
-
-    [data-theme="light"] .tog-knob {
-      transform: translateX(25px)
-    }
-
-    /* page flash on theme switch */
-    .theme-flash {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 9998;
-      background: var(--accent);
-      opacity: 0;
-      animation: flashOut .45s ease forwards
-    }
-
-    @keyframes flashOut {
-      0% {
-        opacity: .07
-      }
-
-      100% {
-        opacity: 0
-      }
-    }
-
-    .nav-cta {
-      background: var(--btn-bg);
-      color: var(--btn-text);
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: .05em;
-      text-transform: uppercase;
-      padding: .45rem 1.1rem;
-      border-radius: 5px;
-      text-decoration: none;
-      transition: opacity .2s, transform .2s, box-shadow .2s;
-    }
-
-    .nav-cta:hover {
-      opacity: .9;
-      transform: translateY(-1px);
-      box-shadow: 0 6px 20px var(--accent-glow)
-    }
-
-    .nav-mob-btn {
-      display: none;
-      background: none;
-      border: none;
-      cursor: pointer;
-      color: var(--text);
-      line-height: 1
-    }
-
-    /* ── HERO ── */
-    #hero {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      align-items: flex-end;
-      overflow: hidden;
-      padding: 0 2rem 5.5rem;
-    }
-
-    .hero-glow-1 {
-      position: absolute;
-      top: -10%;
-      right: -5%;
-      width: 55vw;
-      height: 55vw;
-      background: radial-gradient(ellipse, var(--glow1) 0%, transparent 65%);
-      pointer-events: none;
-      animation: floatA 10s ease-in-out infinite alternate
-    }
-
-    .hero-glow-2 {
-      position: absolute;
-      bottom: 5%;
-      left: 10%;
-      width: 35vw;
-      height: 35vw;
-      background: radial-gradient(ellipse, var(--glow2) 0%, transparent 65%);
-      pointer-events: none;
-      animation: floatB 13s ease-in-out infinite alternate
-    }
-
-    @keyframes floatA {
-      from {
-        transform: translate(0, 0) scale(1)
-      }
-
-      to {
-        transform: translate(-3%, 5%) scale(1.07)
-      }
-    }
-
-    @keyframes floatB {
-      from {
-        transform: translate(0, 0) scale(1)
-      }
-
-      to {
-        transform: translate(4%, -5%) scale(1.1)
-      }
-    }
-
-    .hero-grid {
-      position: absolute;
-      inset: 0;
-      background-image: linear-gradient(var(--grid-col) 1px, transparent 1px), linear-gradient(90deg, var(--grid-col) 1px, transparent 1px);
-      background-size: 60px 60px;
-      mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 100%);
-      transition: background-image .45s;
-    }
-
-    /* animated scan line */
-    .hero-scan {
-      position: absolute;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent 0%, var(--accent) 50%, transparent 100%);
-      opacity: .22;
-      animation: scanDown 7s linear infinite;
-      pointer-events: none;
-    }
-
-    @keyframes scanDown {
-      from {
-        top: 0%
-      }
-
-      to {
-        top: 100%
-      }
-    }
-
-    .hero-inner {
-      position: relative;
-      max-width: 1100px;
-      margin: 0 auto;
-      width: 100%;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 3rem;
-      align-items: flex-end;
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
-      border: 1px solid var(--border);
-      background: rgba(59, 130, 246, .06);
-      border-radius: 100px;
-      padding: .3rem .9rem;
-      font-size: 11px;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: var(--text-m);
-      margin-bottom: 1.5rem;
-      opacity: 0;
-      animation: fadeUp .6s .2s ease forwards;
-    }
-
-    .badge-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--accent);
-      animation: blinkDot 2s ease-in-out infinite
-    }
-
-    @keyframes blinkDot {
-
-      0%,
-      100% {
-        opacity: 1;
-        transform: scale(1)
-      }
-
-      50% {
-        opacity: .3;
-        transform: scale(1.7)
-      }
-    }
-
-    h1.hero-title {
-      font-size: clamp(3.2rem, 8.5vw, 7rem);
-      opacity: 0;
-      animation: fadeUp .85s .35s cubic-bezier(.22, 1, .36, 1) forwards
-    }
-
-    h1.hero-title .dim {
-      color: var(--text-d)
-    }
-
-    .hero-title-wrap {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: flex-end;
-      gap: 2rem;
-      margin-bottom: 2rem;
-    }
-
-    .hero-org {
-      display: flex;
-      align-items: center;
-      gap: 1.25rem;
-      border-left: 2px solid var(--accent);
-      padding-left: 1.5rem;
-      margin-bottom: 0.8rem;
-      min-width: 200px;
-    }
-
-    .logo-space {
-      width: 48px;
-      height: 48px;
-      border-radius: 10px;
-      background: var(--surface2);
-      border: 1px solid var(--border-h);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 6px;
-      overflow: hidden;
-      flex-shrink: 0;
-      box-shadow: 0 4px 12px var(--shadow);
-    }
-
-    .logo-space img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-
-    .org-text {
-      font-size: 12px;
-      line-height: 1.4;
-      color: var(--text);
-      font-weight: 600;
-    }
-
-    /* shimmer sweep after title reveals */
-    h1.hero-title.shimmer {
-      background: linear-gradient(90deg, var(--text) 0%, var(--accent) 40%, var(--text) 60%);
-      background-size: 200% auto;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: fadeUp .85s .35s cubic-bezier(.22, 1, .36, 1) forwards, textShimmer 1.8s 1s ease forwards;
-    }
-
-    @keyframes textShimmer {
-      from {
-        background-position: -200% center
-      }
-
-      to {
-        background-position: 200% center
-      }
-    }
-
-    .hero-sub {
-      font-size: 16px;
-      font-weight: 300;
-      color: var(--text-m);
-      max-width: 520px;
-      margin: 1.2rem 0 2rem;
-      line-height: 1.75;
-      opacity: 0;
-      animation: fadeUp .6s .52s ease forwards
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: .75rem;
-      flex-wrap: wrap;
-      opacity: 0;
-      animation: fadeUp .6s .66s ease forwards
-    }
-
-    .hero-meta {
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-      opacity: 0;
-      animation: fadeUp .6s .76s ease forwards
-    }
-
-    .hero-meta-item {
-      text-align: right
-    }
-
-    .meta-label {
-      font-family: var(--mono);
-      font-size: 10px;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--text-d);
-      display: block;
-      margin-bottom: .15rem
-    }
-
-    .meta-value {
-      font-family: var(--body);
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--text)
-    }
-
-    .scroll-cue {
-      position: absolute;
-      bottom: 2rem;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: .5rem;
-      opacity: 0;
-      animation: fadeIn 1s 1.6s ease forwards
-    }
-
-    .scroll-line {
-      width: 1px;
-      height: 40px;
-      background: linear-gradient(to bottom, var(--text-m), transparent);
-      animation: scanLine 2.2s ease-in-out infinite
-    }
-
-    @keyframes scanLine {
-      0% {
-        transform: scaleY(0);
-        transform-origin: top
-      }
-
-      49% {
-        transform: scaleY(1);
-        transform-origin: top
-      }
-
-      50% {
-        transform: scaleY(1);
-        transform-origin: bottom
-      }
-
-      100% {
-        transform: scaleY(0);
-        transform-origin: bottom
-      }
-    }
-
-    .scroll-text {
-      font-family: var(--mono);
-      font-size: 9px;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: var(--text-d)
-    }
-
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(26px)
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0)
-      }
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0
-      }
-
-      to {
-        opacity: 1
-      }
-    }
-
-    /* ── BUTTONS ── */
-    .btn-primary {
-      background: var(--btn-bg);
-      color: var(--btn-text);
-      font-family: var(--body);
-      font-size: 13px;
-      font-weight: 600;
-      padding: .75rem 1.75rem;
-      border-radius: 6px;
-      border: none;
-      text-decoration: none;
-      cursor: pointer;
-      display: inline-block;
-      transition: transform .2s, box-shadow .2s;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .btn-primary::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(120deg, transparent 30%, rgba(255, 255, 255, .18) 50%, transparent 70%);
-      transform: translateX(-100%);
-      transition: transform .45s ease;
-    }
-
-    .btn-primary:hover::after {
-      transform: translateX(100%)
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 28px var(--accent-glow)
-    }
-
-    .btn-ghost {
-      background: transparent;
-      color: var(--text-m);
-      font-family: var(--body);
-      font-size: 13px;
-      font-weight: 500;
-      padding: .75rem 1.75rem;
-      border-radius: 6px;
-      border: 1px solid var(--border);
-      text-decoration: none;
-      cursor: pointer;
-      display: inline-block;
-      transition: border-color .2s, color .2s, transform .2s;
-    }
-
-    .btn-ghost:hover {
-      border-color: var(--border-h);
-      color: var(--text);
-      transform: translateY(-1px)
-    }
-
-    /* ── SECTION CHROME ── */
-    section {
-      padding: 7rem 2rem
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: 0 auto
-    }
-
-    .eyebrow {
-      font-family: var(--mono);
-      font-size: 10px;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: var(--text-d);
-      margin-bottom: .75rem
-    }
-
-    h2.section-title {
-      font-size: clamp(1.85rem, 4.5vw, 3rem);
-      margin-bottom: 1rem
-    }
-
-    .section-desc {
-      font-size: 14px;
-      color: var(--text-m);
-      max-width: 380px;
-      line-height: 1.7
-    }
-
-    .section-header {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      margin-bottom: 4rem
-    }
-
-    @media(min-width:768px) {
-      .section-header {
-        flex-direction: row;
-        align-items: flex-end;
-        justify-content: space-between
-      }
-    }
-
-    /* ── GLANCE ── */
-    #glance {
-      background: var(--surface);
-      transition: background .45s
-    }
-
-    .glance-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      overflow: hidden;
-      transition: border-color .4s
-    }
-
-    .glance-card {
-      padding: 2rem;
-      border-right: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      cursor: default;
-      position: relative;
-      overflow: hidden;
-      transition: background .25s, border-color .4s;
-    }
-
-    .glance-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 50% 110%, var(--accent-glow), transparent 65%);
-      opacity: 0;
-      transition: opacity .4s
-    }
-
-    .glance-card:hover {
-      background: rgba(59, 130, 246, .04)
-    }
-
-    .glance-card:hover::before {
-      opacity: 1
-    }
-
-    .glance-n {
-      font-family: var(--mono);
-      font-size: 10px;
-      letter-spacing: .1em;
-      color: var(--text-d);
-      margin-bottom: 1rem;
-      display: block;
-      transition: color .25s, transform .25s
-    }
-
-    .glance-card:hover .glance-n {
-      color: var(--accent);
-      transform: translateX(4px)
-    }
-
-    .glance-label {
-      font-family: var(--body);
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: .5rem;
-      transition: color .35s
-    }
-
-    .glance-text {
-      font-size: 13px;
-      color: var(--text-m);
-      line-height: 1.65;
-      transition: color .35s
-    }
-
-    /* ── CFP ── */
-    #cfp {
-      background: var(--bg);
-      transition: background .45s
-    }
-
-    .topics-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1rem;
-      margin-bottom: 3rem
-    }
-
-    .topic-card {
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.75rem;
-      background: var(--card);
-      transition: border-color .25s, transform .3s, box-shadow .3s, background .4s;
-      position: relative;
-      overflow: hidden;
-    }
-
-    /* accent left stripe on hover */
-    .topic-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      width: 3px;
-      background: var(--accent);
-      transform: scaleY(0);
-      transform-origin: bottom;
-      transition: transform .3s ease
-    }
-
-    .topic-card:hover::before {
-      transform: scaleY(1)
-    }
-
-    .topic-card:hover {
-      border-color: var(--border-h);
-      transform: translateY(-5px);
-      box-shadow: 0 14px 40px var(--shadow)
-    }
-
-    .topic-card:hover .topic-list li {
-      animation: listSlide .3s ease both
-    }
-
-    .topic-card:hover .topic-list li:nth-child(1) {
-      animation-delay: .02s
-    }
-
-    .topic-card:hover .topic-list li:nth-child(2) {
-      animation-delay: .07s
-    }
-
-    .topic-card:hover .topic-list li:nth-child(3) {
-      animation-delay: .12s
-    }
-
-    .topic-card:hover .topic-list li:nth-child(4) {
-      animation-delay: .17s
-    }
-
-    .topic-card:hover .topic-list li:nth-child(5) {
-      animation-delay: .22s
-    }
-
-    @keyframes listSlide {
-      from {
-        opacity: .3;
-        transform: translateX(-7px)
-      }
-
-      to {
-        opacity: 1;
-        transform: none
-      }
-    }
-
-    .topic-n {
-      font-family: var(--mono);
-      font-size: 10px;
-      color: var(--text-d);
-      letter-spacing: .1em;
-      margin-bottom: 1rem;
-      display: block
-    }
-
-    .topic-group {
-      font-family: var(--body);
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 1rem;
-      transition: color .35s
-    }
-
-    .topic-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: .55rem
-    }
-
-    .topic-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: .6rem;
-      font-size: 12.5px;
-      color: var(--text-m);
-      line-height: 1.5
-    }
-
-    .topic-list li::before {
-      content: '';
-      width: 4px;
-      height: 4px;
-      border-radius: 50%;
-      background: var(--accent);
-      flex-shrink: 0;
-      margin-top: .48rem;
-      opacity: .6
-    }
-
-    .sub-box {
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 2.5rem;
-      background: var(--surface);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2.5rem;
-      transition: background .4s, border-color .4s
-    }
-
-    @media(max-width:640px) {
-      .sub-box {
-        grid-template-columns: 1fr
-      }
-    }
-
-    .sub-title {
-      font-family: var(--body);
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 1.25rem;
-      transition: color .35s
-    }
-
-    .sub-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: .7rem
-    }
-
-    .sub-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: .6rem;
-      font-size: 13px;
-      color: var(--text-m);
-      line-height: 1.55
-    }
-
-    .sub-list li::before {
-      content: '·';
-      color: var(--accent);
-      font-size: 18px;
-      line-height: 1.2;
-      flex-shrink: 0
-    }
-
-    .sub-actions {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: .75rem
-    }
-
-    /* ── DATES ── */
-    #dates {
-      background: var(--surface);
-      transition: background .45s
-    }
-
-    .dates-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem
-    }
-
-    .dates-grid a {
-      text-decoration: none;
-      display: block;
-      color: inherit;
-    }
-
-    .date-card {
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.75rem;
-      background: var(--card);
-      position: relative;
-      overflow: hidden;
-      transition: transform .25s, border-color .25s, box-shadow .25s, background .4s;
-    }
-
-    .date-card.past {
-      opacity: .38
-    }
-
-    .date-card.hi {
-      background: var(--accent);
-      border-color: transparent;
-      animation: hiPulse 3.5s 1s ease-in-out infinite
-    }
-
-    @keyframes hiPulse {
-
-      0%,
-      100% {
-        box-shadow: 0 0 0 0 rgba(59, 130, 246, .0)
-      }
-
-      50% {
-        box-shadow: 0 0 0 9px rgba(59, 130, 246, .16)
-      }
-    }
-
-    .date-card:not(.past):not(.hi):hover {
-      transform: translateY(-5px);
-      border-color: var(--accent);
-      box-shadow: 0 0 0 1px var(--accent), 0 12px 36px var(--accent-glow)
-    }
-
-    /* glint sweep */
-    .date-card:not(.past):not(.hi)::after {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 30%;
-      height: 200%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .06), transparent);
-      transform: translateX(-100%) rotate(15deg);
-      transition: transform .55s ease
-    }
-
-    .date-card:not(.past):not(.hi):hover::after {
-      transform: translateX(500%) rotate(15deg)
-    }
-
-    .date-n {
-      font-family: var(--mono);
-      font-size: 10px;
-      letter-spacing: .1em;
-      color: var(--text-d);
-      margin-bottom: 1rem;
-      display: block
-    }
-
-    .date-card.hi .date-n {
-      color: rgba(255, 255, 255, .3)
-    }
-
-    .date-value {
-      font-family: var(--body);
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: .4rem
-    }
-
-    .date-card.hi .date-value {
-      color: var(--accent-text)
-    }
-
-    .date-label {
-      font-size: 13px;
-      color: var(--text-m);
-      line-height: 1.4
-    }
-
-    .date-card.past .date-label {
-      text-decoration: line-through
-    }
-
-    .date-card.hi .date-label {
-      color: var(--text-m)
-    }
-
-    .date-badge {
-      display: inline-block;
-      margin-top: 1rem;
-      font-size: 11px;
-      background: rgba(15, 23, 42, .1);
-      color: var(--text-m);
-      border-radius: 4px;
-      padding: .2rem .55rem
-    }
-
-    .date-note {
-      margin-top: 1.5rem;
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--text-d);
-      letter-spacing: .02em
-    }
-
-    /* ── COMMITTEE ── */
-    #committee {
-      background: var(--bg);
-      transition: background .45s
-    }
-
-    .org-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1rem;
-      margin-bottom: 4rem
-    }
-
-    .org-card {
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.5rem;
-      background: var(--card);
-      transition: border-color .2s, background .2s, box-shadow .25s;
-    }
-
-    .org-card:hover {
-      border-color: var(--border-h);
-      box-shadow: 0 8px 30px var(--shadow)
-    }
-
-    .org-av {
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--surface2), var(--surface));
-      border: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--body);
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--text-m);
-      margin-bottom: 1.25rem;
-      overflow: hidden;
-      transition: transform .4s cubic-bezier(.34, 1.56, .64, 1), box-shadow .3s, border-color .3s;
-    }
-
-    .org-av img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform .4s ease;
-    }
-
-    .org-card:hover .org-av {
-      transform: rotate(-5deg) scale(1.1);
-      box-shadow: 0 8px 24px var(--accent-glow);
-      border-color: var(--accent);
-    }
-
-    .org-card:hover .org-av img {
-      transform: scale(1.12);
-    }
-
-    .org-name {
-      font-family: var(--body);
-      font-size: 13.5px;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: .25rem;
-      transition: color .35s
-    }
-
-    .org-aff {
-      font-size: 12px;
-      color: var(--text-m);
-      line-height: 1.5;
-      margin-bottom: .6rem;
-      transition: color .35s
-    }
-
-    .org-tag {
-      display: inline-block;
-      font-size: 10.5px;
-      color: var(--text-d);
-      border: 1px solid var(--border);
-      border-radius: 100px;
-      padding: .15rem .65rem;
-      transition: border-color .35s, color .35s
-    }
-
-    .org-email {
-      display: block;
-      margin-top: .5rem;
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--text-d);
-      text-decoration: none;
-      transition: color .2s
-    }
-
-    .org-email:hover {
-      color: var(--accent)
-    }
-
-    .com-title {
-      font-family: var(--mono);
-      font-size: 10px;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: var(--text-d);
-      margin-bottom: 1.5rem;
-      transition: color .35s
-    }
-
-    .adv-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: .75rem;
-      margin-bottom: 3.5rem
-    }
-
-    .adv-item {
-      display: flex;
-      align-items: center;
-      gap: .75rem
-    }
-
-    .adv-av {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--text-d);
-      flex-shrink: 0;
-      transition: background .4s, border-color .4s
-    }
-
-    .adv-name {
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--text);
-      transition: color .35s
-    }
-
-    .adv-aff {
-      font-size: 11.5px;
-      color: var(--text-m);
-      transition: color .35s
-    }
-
-    .tpc-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: .9rem
-    }
-
-    .tpc-item {
-      display: flex;
-      align-items: center;
-      gap: .7rem;
-      transition: transform .2s
-    }
-
-    .tpc-item:hover {
-      transform: translateX(4px)
-    }
-
-    .tpc-dot {
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: var(--accent);
-      opacity: .5;
-      flex-shrink: 0
-    }
-
-    .tpc-name {
-      font-size: 13px;
-      color: var(--text-m);
-      transition: color .35s
-    }
-
-    .tpc-aff {
-      font-size: 11px;
-      color: var(--text-d);
-      transition: color .35s
-    }
-
-    /* ── CONTACT ── */
-    #contact {
-      background: var(--surface);
-      transition: background .45s
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center
-    }
-
-    @media(max-width:768px) {
-      .contact-grid {
-        grid-template-columns: 1fr
-      }
-    }
-
-    .contact-card {
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 2.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-      background: var(--card);
-      transition: border-color .2s, box-shadow .2s, background .4s;
-    }
-
-    .contact-card:hover {
-      border-color: var(--border-h);
-      box-shadow: 0 8px 40px var(--shadow)
-    }
-
-    .c-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 8px;
-      background: rgba(59, 130, 246, .1);
-      border: 1px solid rgba(59, 130, 246, .22);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 16px
-    }
-
-    .c-name {
-      font-family: var(--body);
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--text);
-      transition: color .35s
-    }
-
-    .c-role {
-      font-size: 12px;
-      color: var(--text-m);
-      margin-top: .15rem;
-      transition: color .35s
-    }
-
-    .c-aff {
-      font-size: 12px;
-      color: var(--text-d);
-      transition: color .35s
-    }
-
-    .c-email {
-      font-family: var(--mono);
-      font-size: 12px;
-      color: var(--accent);
-      text-decoration: none;
-      transition: opacity .2s
-    }
-
-    .c-email:hover {
-      opacity: .7
-    }
-
-    .prefix {
-      display: inline-block;
-      font-family: var(--mono);
-      font-size: 11px;
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: .2rem .55rem;
-      color: var(--text-m);
-      transition: background .4s, border-color .4s
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      background: var(--bg);
-      border-top: 1px solid var(--border);
-      padding: 2.5rem 2rem;
-      text-align: center;
-      transition: background .45s, border-color .4s
-    }
-
-    .f-logo {
-      font-family: var(--body);
-      font-size: 14px;
-      font-weight: 100;
-      color: var(--text-m);
-      margin-bottom: .4rem;
-      transition: color .35s
-    }
-
-    .f-note {
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--text-d);
-      letter-spacing: .04em;
-      transition: color .35s
-    }
-
-    /* ── SCROLL REVEAL ── */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(22px);
-      transition: opacity .65s ease, transform .65s ease
-    }
-
-    .slide-l {
-      opacity: 0;
-      transform: translateX(-32px);
-      transition: opacity .6s ease, transform .6s ease
-    }
-
-    .slide-r {
-      opacity: 0;
-      transform: translateX(32px);
-      transition: opacity .6s ease, transform .6s ease
-    }
-
-    .scale-in {
-      opacity: 0;
-      transform: scale(.92);
-      transition: opacity .55s ease, transform .55s ease
-    }
-
-    .fade-in.on,
-    .slide-l.on,
-    .slide-r.on,
-    .scale-in.on {
-      opacity: 1;
-      transform: none
-    }
-
-    .d1 {
-      transition-delay: .08s
-    }
-
-    .d2 {
-      transition-delay: .16s
-    }
-
-    .d3 {
-      transition-delay: .24s
-    }
-
-    .d4 {
-      transition-delay: .32s
-    }
-
-    .d5 {
-      transition-delay: .40s
-    }
-
-    /* ── RESPONSIVE ── */
-    @media(max-width:900px) {
-      .hero-inner {
-        grid-template-columns: 1fr
-      }
-
-      .hero-meta {
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 1.5rem
-      }
-
-      .hero-meta-item {
-        text-align: left
-      }
-
-      .nav-links,
-      .nav-cta {
-        display: none
-      }
-
-      .nav-mob-btn {
-        display: flex
-      }
-    }
-
-    @media(max-width:600px) {
-      section {
-        padding: 5rem 1.25rem
-      }
-
-      nav {
-        padding: 0 1.25rem
-      }
-
-      #hero {
-        padding: 0 1.25rem 4rem
-      }
-    }
-
-    /* ── MOBILE MENU ── */
-    .mob-menu {
-      display: none;
-      position: fixed;
-      top: 60px;
-      left: 0;
-      right: 0;
-      background: var(--nav-bg);
-      backdrop-filter: blur(18px);
-      border-bottom: 1px solid var(--border);
-      z-index: 99;
-      padding: 1.5rem;
-      flex-direction: column;
-      gap: 1rem;
-      transition: background .4s
-    }
-
-    .mob-menu.open {
-      display: flex
-    }
-
-    .mob-menu a {
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--text-m);
-      text-decoration: none;
-      padding: .5rem 0;
-      border-bottom: 1px solid var(--border);
-      transition: color .2s
-    }
-
-    .mob-menu a:hover {
-      color: var(--text)
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QSP-AI-MetaTwin 2026 — IWQoS 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <style>
+        @font-face {
+            font-family: 'Geist';
+            src: url('https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/fonts/geist-sans/Geist-Light.woff2') format('woff2');
+            font-weight: 300;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Geist';
+            src: url('https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/fonts/geist-sans/Geist-Regular.woff2') format('woff2');
+            font-weight: 400;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Geist';
+            src: url('https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/fonts/geist-sans/Geist-Medium.woff2') format('woff2');
+            font-weight: 500;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Geist';
+            src: url('https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/fonts/geist-sans/Geist-SemiBold.woff2') format('woff2');
+            font-weight: 600;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Geist';
+            src: url('https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/fonts/geist-sans/Geist-Bold.woff2') format('woff2');
+            font-weight: 700;
+            font-display: swap;
+        }
+
+        /* ── TOKENS ── */
+        :root {
+            --pixel: 'Pixelify Sans', monospace;
+            --body: 'Geist', 'DM Sans', sans-serif;
+            --mono: 'DM Mono', monospace;
+            --accent: #3b82f6;
+            --accent-text: #ffffff;
+            --btn-bg: var(--accent);
+            --btn-text: #ffffff;
+            --accent-glow: rgba(59, 130, 246, .22);
+            --radius: 10px;
+        }
+
+        /* ── DARK ── */
+        [data-theme="dark"] {
+            --bg: #080a0f;
+            --surface: #0d1017;
+            --surface2: #131820;
+            --card: #0d1017;
+            --border: rgba(255, 255, 255, .07);
+            --border-h: rgba(255, 255, 255, .18);
+            --text: #e8eaf0;
+            --text-m: rgba(232, 234, 240, .48);
+            --text-d: rgba(232, 234, 240, .22);
+            --btn-bg: #ffffff;
+            --btn-text: #080a0f;
+            --nav-bg: rgba(8, 10, 15, .93);
+            --grid-col: rgba(255, 255, 255, .025);
+            --glow1: rgba(59, 130, 246, .18);
+            --glow2: rgba(99, 102, 241, .12);
+            --shadow: rgba(0, 0, 0, .3);
+            --tog-track: #1a2030;
+        }
+
+        /* ── LIGHT ── */
+        [data-theme="light"] {
+            --bg: #f0f4f8;
+            --surface: #ffffff;
+            --surface2: #e2e8f0;
+            --card: #ffffff;
+            --border: rgba(15, 23, 42, .12);
+            --border-h: rgba(15, 23, 42, .28);
+            --text: #0f172a;
+            --text-m: #475569;
+            --text-d: #64748b;
+            --accent: #fbbf24;
+            --accent-text: #0f172a;
+            --btn-bg: #0f172a;
+            --btn-text: #ffffff;
+            --nav-bg: rgba(240, 244, 248, .85);
+            --grid-col: rgba(15, 23, 42, .06);
+            --glow1: rgba(251, 191, 36, 0.18);
+            --glow2: rgba(251, 191, 36, 0.14);
+            --shadow: rgba(15, 23, 42, .1);
+            --tog-track: #cbd5e1;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--body);
+            font-size: 15px;
+            line-height: 1.65;
+            overflow-x: hidden;
+            transition: background .45s ease, color .35s ease;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: .35;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+        }
+
+        ::-webkit-scrollbar {
+            width: 4px
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg)
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-h);
+            border-radius: 2px
+        }
+
+        h1.hero-title,
+        h2.section-title {
+            font-family: var(--pixel);
+            font-weight: 700;
+            line-height: 1.08;
+            letter-spacing: .01em;
+            color: var(--text);
+            transition: color .35s;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 200;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2rem;
+            height: 60px;
+            transition: background .3s, border-color .3s, backdrop-filter .3s;
+        }
+
+        nav.scrolled {
+            background: var(--nav-bg);
+            backdrop-filter: blur(18px) saturate(180%);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-logo {
+            font-family: var(--body);
+            font-weight: 100;
+            font-size: 20px;
+            color: var(--text);
+            text-decoration: none;
+            transition: color .3s
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none
+        }
+
+        .nav-links a {
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            color: var(--text-m);
+            text-decoration: none;
+            transition: color .2s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            width: 0;
+            height: 1px;
+            background: var(--accent);
+            transition: width .25s
+        }
+
+        .nav-links a:hover {
+            color: var(--text)
+        }
+
+        .nav-links a:hover::after {
+            width: 100%
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: .85rem
+        }
+
+        .theme-toggle {
+            position: relative;
+            width: 52px;
+            height: 27px;
+            border-radius: 14px;
+            background: var(--tog-track);
+            border: 1px solid var(--border);
+            cursor: pointer;
+            flex-shrink: 0;
+            overflow: hidden;
+            transition: background .4s, border-color .4s;
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--border-h)
+        }
+
+        .tog-icons {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5px;
+            pointer-events: none;
+            font-size: 11px;
+        }
+
+        .tog-icons span {
+            transition: opacity .3s
+        }
+
+        [data-theme="dark"] .tog-sun {
+            opacity: .2
+        }
+
+        [data-theme="dark"] .tog-moon {
+            opacity: .85
+        }
+
+        [data-theme="light"] .tog-sun {
+            opacity: .9
+        }
+
+        [data-theme="light"] .tog-moon {
+            opacity: .2
+        }
+
+        .tog-knob {
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 19px;
+            height: 19px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), #818cf8);
+            box-shadow: 0 2px 8px var(--accent-glow);
+            transition: transform .42s cubic-bezier(.34, 1.56, .64, 1), box-shadow .3s;
+        }
+
+        [data-theme="light"] .tog-knob {
+            transform: translateX(25px)
+        }
+
+        .theme-flash {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 9998;
+            background: var(--accent);
+            opacity: 0;
+            animation: flashOut .45s ease forwards
+        }
+
+        @keyframes flashOut {
+            0% {
+                opacity: .07
+            }
+
+            100% {
+                opacity: 0
+            }
+        }
+
+        .nav-cta {
+            background: var(--btn-bg);
+            color: var(--btn-text);
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: .05em;
+            text-transform: uppercase;
+            padding: .45rem 1.1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: opacity .2s, transform .2s, box-shadow .2s;
+        }
+
+        .nav-cta:hover {
+            opacity: .9;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px var(--accent-glow)
+        }
+
+        .nav-mob-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text);
+            line-height: 1
+        }
+
+        #hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: flex-end;
+            overflow: hidden;
+            padding: 0 2rem 5.5rem;
+        }
+
+        .hero-glow-1 {
+            position: absolute;
+            top: -10%;
+            right: -5%;
+            width: 55vw;
+            height: 55vw;
+            background: radial-gradient(ellipse, var(--glow1) 0%, transparent 65%);
+            pointer-events: none;
+            animation: floatA 10s ease-in-out infinite alternate
+        }
+
+        .hero-glow-2 {
+            position: absolute;
+            bottom: 5%;
+            left: 10%;
+            width: 35vw;
+            height: 35vw;
+            background: radial-gradient(ellipse, var(--glow2) 0%, transparent 65%);
+            pointer-events: none;
+            animation: floatB 13s ease-in-out infinite alternate
+        }
+
+        @keyframes floatA {
+            from {
+                transform: translate(0, 0) scale(1)
+            }
+
+            to {
+                transform: translate(-3%, 5%) scale(1.07)
+            }
+        }
+
+        @keyframes floatB {
+            from {
+                transform: translate(0, 0) scale(1)
+            }
+
+            to {
+                transform: translate(4%, -5%) scale(1.1)
+            }
+        }
+
+        .hero-grid {
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(var(--grid-col) 1px, transparent 1px), linear-gradient(90deg, var(--grid-col) 1px, transparent 1px);
+            background-size: 60px 60px;
+            mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 100%);
+            transition: background-image .45s;
+        }
+
+        .hero-scan {
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, var(--accent) 50%, transparent 100%);
+            opacity: .22;
+            animation: scanDown 7s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes scanDown {
+            from {
+                top: 0%
+            }
+
+            to {
+                top: 100%
+            }
+        }
+
+        .hero-inner {
+            position: relative;
+            max-width: 1100px;
+            margin: 0 auto;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 3rem;
+            align-items: flex-end;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            border: 1px solid var(--border);
+            background: rgba(59, 130, 246, .06);
+            border-radius: 100px;
+            padding: .3rem .9rem;
+            font-size: 11px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--text-m);
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: fadeUp .6s .2s ease forwards;
+        }
+
+        .badge-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+            animation: blinkDot 2s ease-in-out infinite
+        }
+
+        @keyframes blinkDot {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1)
+            }
+
+            50% {
+                opacity: .3;
+                transform: scale(1.7)
+            }
+        }
+
+        h1.hero-title {
+            font-size: clamp(3.2rem, 8.5vw, 7rem);
+            opacity: 0;
+            animation: fadeUp .85s .35s cubic-bezier(.22, 1, .36, 1) forwards
+        }
+
+        h1.hero-title .dim {
+            color: var(--text-d)
+        }
+
+        .hero-title-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-end;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero-org {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            border-left: 2px solid var(--accent);
+            padding-left: 1.5rem;
+            margin-bottom: 0.8rem;
+            min-width: 200px;
+        }
+
+        .logo-space {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            background: var(--surface2);
+            border: 1px solid var(--border-h);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6px;
+            overflow: hidden;
+            flex-shrink: 0;
+            box-shadow: 0 4px 12px var(--shadow);
+        }
+
+        .logo-space img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .org-text {
+            font-size: 12px;
+            line-height: 1.4;
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        h1.hero-title.shimmer {
+            background: linear-gradient(90deg, var(--text) 0%, var(--accent) 40%, var(--text) 60%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeUp .85s .35s cubic-bezier(.22, 1, .36, 1) forwards, textShimmer 1.8s 1s ease forwards;
+        }
+
+        @keyframes textShimmer {
+            from {
+                background-position: -200% center
+            }
+
+            to {
+                background-position: 200% center
+            }
+        }
+
+        .hero-sub {
+            font-size: 16px;
+            font-weight: 300;
+            color: var(--text-m);
+            max-width: 520px;
+            margin: 1.2rem 0 2rem;
+            line-height: 1.75;
+            opacity: 0;
+            animation: fadeUp .6s .52s ease forwards
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: .75rem;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeUp .6s .66s ease forwards
+        }
+
+        .hero-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            opacity: 0;
+            animation: fadeUp .6s .76s ease forwards
+        }
+
+        .hero-meta-item {
+            text-align: right
+        }
+
+        .meta-label {
+            font-family: var(--mono);
+            font-size: 10px;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--text-d);
+            display: block;
+            margin-bottom: .15rem
+        }
+
+        .meta-value {
+            font-family: var(--body);
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text)
+        }
+
+        .scroll-cue {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: .5rem;
+            opacity: 0;
+            animation: fadeIn 1s 1.6s ease forwards
+        }
+
+        .scroll-line {
+            width: 1px;
+            height: 40px;
+            background: linear-gradient(to bottom, var(--text-m), transparent);
+            animation: scanLine 2.2s ease-in-out infinite
+        }
+
+        @keyframes scanLine {
+            0% {
+                transform: scaleY(0);
+                transform-origin: top
+            }
+
+            49% {
+                transform: scaleY(1);
+                transform-origin: top
+            }
+
+            50% {
+                transform: scaleY(1);
+                transform-origin: bottom
+            }
+
+            100% {
+                transform: scaleY(0);
+                transform-origin: bottom
+            }
+        }
+
+        .scroll-text {
+            font-family: var(--mono);
+            font-size: 9px;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--text-d)
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(26px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        .btn-primary {
+            background: var(--btn-bg);
+            color: var(--btn-text);
+            font-family: var(--body);
+            font-size: 13px;
+            font-weight: 600;
+            padding: .75rem 1.75rem;
+            border-radius: 6px;
+            border: none;
+            text-decoration: none;
+            cursor: pointer;
+            display: inline-block;
+            transition: transform .2s, box-shadow .2s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(120deg, transparent 30%, rgba(255, 255, 255, .18) 50%, transparent 70%);
+            transform: translateX(-100%);
+            transition: transform .45s ease;
+        }
+
+        .btn-primary:hover::after {
+            transform: translateX(100%)
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px var(--accent-glow)
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: var(--text-m);
+            font-family: var(--body);
+            font-size: 13px;
+            font-weight: 500;
+            padding: .75rem 1.75rem;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            text-decoration: none;
+            cursor: pointer;
+            display: inline-block;
+            transition: border-color .2s, color .2s, transform .2s;
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--border-h);
+            color: var(--text);
+            transform: translateY(-1px)
+        }
+
+        section {
+            padding: 7rem 2rem
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto
+        }
+
+        .eyebrow {
+            font-family: var(--mono);
+            font-size: 10px;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--text-d);
+            margin-bottom: .75rem
+        }
+
+        h2.section-title {
+            font-size: clamp(1.85rem, 4.5vw, 3rem);
+            margin-bottom: 1rem
+        }
+
+        .section-desc {
+            font-size: 14px;
+            color: var(--text-m);
+            max-width: 380px;
+            line-height: 1.7
+        }
+
+        .section-header {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            margin-bottom: 4rem
+        }
+
+        @media(min-width:768px) {
+            .section-header {
+                flex-direction: row;
+                align-items: flex-end;
+                justify-content: space-between
+            }
+        }
+
+        #glance {
+            background: var(--surface);
+            transition: background .45s
+        }
+
+        .glance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: border-color .4s
+        }
+
+        .glance-card {
+            padding: 2rem;
+            border-right: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            cursor: default;
+            position: relative;
+            overflow: hidden;
+            transition: background .25s, border-color .4s;
+        }
+
+        .glance-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 110%, var(--accent-glow), transparent 65%);
+            opacity: 0;
+            transition: opacity .4s
+        }
+
+        .glance-card:hover {
+            background: rgba(59, 130, 246, .04)
+        }
+
+        .glance-card:hover::before {
+            opacity: 1
+        }
+
+        .glance-n {
+            font-family: var(--mono);
+            font-size: 10px;
+            letter-spacing: .1em;
+            color: var(--text-d);
+            margin-bottom: 1rem;
+            display: block;
+            transition: color .25s, transform .25s
+        }
+
+        .glance-card:hover .glance-n {
+            color: var(--accent);
+            transform: translateX(4px)
+        }
+
+        .glance-label {
+            font-family: var(--body);
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: .5rem;
+            transition: color .35s
+        }
+
+        .glance-text {
+            font-size: 13px;
+            color: var(--text-m);
+            line-height: 1.65;
+            transition: color .35s
+        }
+
+        #cfp {
+            background: var(--bg);
+            transition: background .45s
+        }
+
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            margin-bottom: 3rem
+        }
+
+        .topic-card {
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.75rem;
+            background: var(--card);
+            transition: border-color .25s, transform .3s, box-shadow .3s, background .4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .topic-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--accent);
+            transform: scaleY(0);
+            transform-origin: bottom;
+            transition: transform .3s ease
+        }
+
+        .topic-card:hover::before {
+            transform: scaleY(1)
+        }
+
+        .topic-card:hover {
+            border-color: var(--border-h);
+            transform: translateY(-5px);
+            box-shadow: 0 14px 40px var(--shadow)
+        }
+
+        .topic-card:hover .topic-list li {
+            animation: listSlide .3s ease both
+        }
+
+        @keyframes listSlide {
+            from {
+                opacity: .3;
+                transform: translateX(-7px)
+            }
+
+            to {
+                opacity: 1;
+                transform: none
+            }
+        }
+
+        .topic-n {
+            font-family: var(--mono);
+            font-size: 10px;
+            color: var(--text-d);
+            letter-spacing: .1em;
+            margin-bottom: 1rem;
+            display: block
+        }
+
+        .topic-group {
+            font-family: var(--body);
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 1rem;
+            transition: color .35s
+        }
+
+        .topic-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: .55rem
+        }
+
+        .topic-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: .6rem;
+            font-size: 12.5px;
+            color: var(--text-m);
+            line-height: 1.5
+        }
+
+        .topic-list li::before {
+            content: '';
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--accent);
+            flex-shrink: 0;
+            margin-top: .48rem;
+            opacity: .6
+        }
+
+        .sub-box {
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2.5rem;
+            background: var(--surface);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            transition: background .4s, border-color .4s
+        }
+
+        @media(max-width:640px) {
+            .sub-box {
+                grid-template-columns: 1fr
+            }
+        }
+
+        .sub-title {
+            font-family: var(--body);
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 1.25rem;
+            transition: color .35s
+        }
+
+        .sub-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: .7rem
+        }
+
+        .sub-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: .6rem;
+            font-size: 13px;
+            color: var(--text-m);
+            line-height: 1.55
+        }
+
+        .sub-list li::before {
+            content: '·';
+            color: var(--accent);
+            font-size: 18px;
+            line-height: 1.2;
+            flex-shrink: 0
+        }
+
+        .sub-actions {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: .75rem
+        }
+
+        #dates {
+            background: var(--surface);
+            transition: background .45s
+        }
+
+        .dates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem
+        }
+
+        .dates-grid a {
+            text-decoration: none;
+            display: block;
+            color: inherit;
+        }
+
+        .date-card {
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.75rem;
+            background: var(--card);
+            position: relative;
+            overflow: hidden;
+            transition: transform .25s, border-color .25s, box-shadow .25s, background .4s;
+        }
+
+        .date-card.past {
+            opacity: .38
+        }
+
+        .date-card.hi {
+            background: var(--accent);
+            border-color: transparent;
+            animation: hiPulse 3.5s 1s ease-in-out infinite
+        }
+
+        @keyframes hiPulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(59, 130, 246, .0)
+            }
+
+            50% {
+                box-shadow: 0 0 0 9px rgba(59, 130, 246, .16)
+            }
+        }
+
+        .date-card:not(.past):not(.hi):hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 0 0 1px var(--accent), 0 12px 36px var(--accent-glow)
+        }
+
+        .date-card:not(.past):not(.hi)::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 30%;
+            height: 200%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .06), transparent);
+            transform: translateX(-100%) rotate(15deg);
+            transition: transform .55s ease
+        }
+
+        .date-card:not(.past):not(.hi):hover::after {
+            transform: translateX(500%) rotate(15deg)
+        }
+
+        .date-n {
+            font-family: var(--mono);
+            font-size: 10px;
+            letter-spacing: .1em;
+            color: var(--text-d);
+            margin-bottom: 1rem;
+            display: block
+        }
+
+        .date-card.hi .date-n {
+            color: rgba(255, 255, 255, .3)
+        }
+
+        .date-value {
+            font-family: var(--body);
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: .4rem
+        }
+
+        .date-card.hi .date-value {
+            color: var(--accent-text)
+        }
+
+        .date-label {
+            font-size: 13px;
+            color: var(--text-m);
+            line-height: 1.4
+        }
+
+        .date-card.past .date-label {
+            text-decoration: line-through
+        }
+
+        .date-card.hi .date-label {
+            color: var(--text-m)
+        }
+
+        .date-badge {
+            display: inline-block;
+            margin-top: 1rem;
+            font-size: 11px;
+            background: rgba(15, 23, 42, .1);
+            color: var(--text-m);
+            border-radius: 4px;
+            padding: .2rem .55rem
+        }
+
+        .date-note {
+            margin-top: 1.5rem;
+            font-family: var(--mono);
+            font-size: 11px;
+            color: var(--text-d);
+            letter-spacing: .02em
+        }
+
+        #committee {
+            background: var(--bg);
+            transition: background .45s
+        }
+
+        .org-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1rem;
+            margin-bottom: 4rem
+        }
+
+        .org-card {
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            background: var(--card);
+            transition: border-color .2s, background .2s, box-shadow .25s;
+        }
+
+        .org-card:hover {
+            border-color: var(--border-h);
+            box-shadow: 0 8px 30px var(--shadow)
+        }
+
+        .org-av {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--surface2), var(--surface));
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--body);
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-m);
+            margin-bottom: 1.25rem;
+            overflow: hidden;
+            transition: transform .4s cubic-bezier(.34, 1.56, .64, 1), box-shadow .3s, border-color .3s;
+        }
+
+        .org-av img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .4s ease;
+        }
+
+        .org-card:hover .org-av {
+            transform: rotate(-5deg) scale(1.1);
+            box-shadow: 0 8px 24px var(--accent-glow);
+            border-color: var(--accent);
+        }
+
+        .org-name {
+            font-family: var(--body);
+            font-size: 13.5px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: .25rem;
+            transition: color .35s
+        }
+
+        .org-aff {
+            font-size: 12px;
+            color: var(--text-m);
+            line-height: 1.5;
+            margin-bottom: .6rem;
+            transition: color .35s
+        }
+
+        .org-tag {
+            display: inline-block;
+            font-size: 10.5px;
+            color: var(--text-d);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            padding: .15rem .65rem;
+            transition: border-color .35s, color .35s
+        }
+
+        .org-email {
+            display: block;
+            margin-top: .5rem;
+            font-family: var(--mono);
+            font-size: 11px;
+            color: var(--text-d);
+            text-decoration: none;
+            transition: color .2s
+        }
+
+        .org-email:hover {
+            color: var(--accent)
+        }
+
+        .com-title {
+            font-family: var(--mono);
+            font-size: 10px;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--text-d);
+            margin-bottom: 1.5rem;
+            transition: color .35s
+        }
+
+        .adv-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: .75rem;
+            margin-bottom: 3.5rem
+        }
+
+        .adv-item {
+            display: flex;
+            align-items: center;
+            gap: .75rem
+        }
+
+        .adv-av {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-d);
+            flex-shrink: 0;
+            transition: background .4s, border-color .4s
+        }
+
+        .adv-name {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text);
+            transition: color .35s
+        }
+
+        .adv-aff {
+            font-size: 11.5px;
+            color: var(--text-m);
+            transition: color .35s
+        }
+
+        .tpc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: .9rem
+        }
+
+        .tpc-item {
+            display: flex;
+            align-items: center;
+            gap: .7rem;
+            transition: transform .2s
+        }
+
+        .tpc-item:hover {
+            transform: translateX(4px)
+        }
+
+        .tpc-dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--accent);
+            opacity: .5;
+            flex-shrink: 0
+        }
+
+        .tpc-name {
+            font-size: 13px;
+            color: var(--text-m);
+            transition: color .35s
+        }
+
+        .tpc-aff {
+            font-size: 11px;
+            color: var(--text-d);
+            transition: color .35s
+        }
+
+        #contact {
+            background: var(--surface);
+            transition: background .45s
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center
+        }
+
+        @media(max-width:768px) {
+            .contact-grid {
+                grid-template-columns: 1fr
+            }
+        }
+
+        .contact-card {
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            background: var(--card);
+            transition: border-color .2s, box-shadow .2s, background .4s;
+        }
+
+        .contact-card:hover {
+            border-color: var(--border-h);
+            box-shadow: 0 8px 40px var(--shadow)
+        }
+
+        .c-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            background: rgba(59, 130, 246, .1);
+            border: 1px solid rgba(59, 130, 246, .22);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px
+        }
+
+        .c-name {
+            font-family: var(--body);
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text);
+            transition: color .35s
+        }
+
+        .c-role {
+            font-size: 12px;
+            color: var(--text-m);
+            margin-top: .15rem;
+            transition: color .35s
+        }
+
+        .c-aff {
+            font-size: 12px;
+            color: var(--text-d);
+            transition: color .35s
+        }
+
+        .c-email {
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--accent);
+            text-decoration: none;
+            transition: opacity .2s
+        }
+
+        .c-email:hover {
+            opacity: .7
+        }
+
+        .prefix {
+            display: inline-block;
+            font-family: var(--mono);
+            font-size: 11px;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: .2rem .55rem;
+            color: var(--text-m);
+            transition: background .4s, border-color .4s
+        }
+
+        footer {
+            background: var(--bg);
+            border-top: 1px solid var(--border);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transition: background .45s, border-color .4s
+        }
+
+        .f-logo {
+            font-family: var(--body);
+            font-size: 14px;
+            font-weight: 100;
+            color: var(--text-m);
+            margin-bottom: .4rem;
+            transition: color .35s
+        }
+
+        .f-note {
+            font-family: var(--mono);
+            font-size: 11px;
+            color: var(--text-d);
+            letter-spacing: .04em;
+            transition: color .35s
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(22px);
+            transition: opacity .65s ease, transform .65s ease
+        }
+
+        .slide-l {
+            opacity: 0;
+            transform: translateX(-32px);
+            transition: opacity .6s ease, transform .6s ease
+        }
+
+        .slide-r {
+            opacity: 0;
+            transform: translateX(32px);
+            transition: opacity .6s ease, transform .6s ease
+        }
+
+        .scale-in {
+            opacity: 0;
+            transform: scale(.92);
+            transition: opacity .55s ease, transform .55s ease
+        }
+
+        .fade-in.on,
+        .slide-l.on,
+        .slide-r.on,
+        .scale-in.on {
+            opacity: 1;
+            transform: none
+        }
+
+        .d1 {
+            transition-delay: .08s
+        }
+
+        .d2 {
+            transition-delay: .16s
+        }
+
+        .d3 {
+            transition-delay: .24s
+        }
+
+        .d4 {
+            transition-delay: .32s
+        }
+
+        .d5 {
+            transition-delay: .40s
+        }
+
+        @media(max-width:900px) {
+            .hero-inner {
+                grid-template-columns: 1fr
+            }
+
+            .hero-meta {
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 1.5rem
+            }
+
+            .hero-meta-item {
+                text-align: left
+            }
+
+            .nav-links,
+            .nav-cta {
+                display: none
+            }
+
+            .nav-mob-btn {
+                display: flex
+            }
+        }
+
+        @media(max-width:600px) {
+            section {
+                padding: 5rem 1.25rem
+            }
+
+            nav {
+                padding: 0 1.25rem
+            }
+
+            #hero {
+                padding: 0 1.25rem 4rem
+            }
+        }
+
+        .mob-menu {
+            display: none;
+            position: fixed;
+            top: 60px;
+            left: 0;
+            right: 0;
+            background: var(--nav-bg);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid var(--border);
+            z-index: 99;
+            padding: 1.5rem;
+            flex-direction: column;
+            gap: 1rem;
+            transition: background .4s
+        }
+
+        .mob-menu.open {
+            display: flex
+        }
+
+        .mob-menu a {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-m);
+            text-decoration: none;
+            padding: .5rem 0;
+            border-bottom: 1px solid var(--border);
+            transition: color .2s
+        }
+
+        .mob-menu a:hover {
+            color: var(--text)
+        }
+    </style>
 </head>
 
 <body>
+    <!-- NAV -->
+    <nav id="nav">
+        <a class="nav-logo" href="#hero">QSP-AI-MetaTwin</a>
+        <ul class="nav-links">
+            <li><a href="#glance">Interest</a></li>
+            <li><a href="#cfp">Call for Papers</a></li>
+            <li><a href="#dates">Dates</a></li>
+            <li><a href="#committee">Committee</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="nav-right">
+            <button class="theme-toggle" id="themeBtn" aria-label="Toggle theme">
+                <div class="tog-icons"><span class="tog-sun">☀️</span><span class="tog-moon">🌙</span></div>
+                <div class="tog-knob"></div>
+            </button>
+            <a class="nav-cta" href="#" target="_blank" rel="noopener">Submit →</a>
+            <button class="nav-mob-btn" onclick="toggleMob()" aria-label="Menu">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="6" x2="21" y2="6" />
+                    <line x1="3" y1="12" x2="21" y2="12" />
+                    <line x1="3" y1="18" x2="21" y2="18" />
+                </svg>
+            </button>
+        </div>
+    </nav>
 
-  <!-- NAV -->
-  <nav id="nav">
-    <a class="nav-logo" href="#hero">Agentic AI for IoT</a>
-    <ul class="nav-links">
-      <li><a href="#glance">At a Glance</a></li>
-      <li><a href="#cfp">Call for Papers</a></li>
-      <li><a href="#dates">Dates</a></li>
-      <li><a href="#committee">Committee</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <div class="nav-right">
-      <button class="theme-toggle" id="themeBtn" aria-label="Toggle theme">
-        <div class="tog-icons"><span class="tog-sun">☀️</span><span class="tog-moon">🌙</span></div>
-        <div class="tog-knob"></div>
-      </button>
-      <a class="nav-cta" href="https://edas.info" target="_blank" rel="noopener">Submit →</a>
-      <button class="nav-mob-btn" onclick="toggleMob()" aria-label="Menu">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <line x1="3" y1="6" x2="21" y2="6" />
-          <line x1="3" y1="12" x2="21" y2="12" />
-          <line x1="3" y1="18" x2="21" y2="18" />
-        </svg>
-      </button>
+    <!-- MOBILE MENU -->
+    <div class="mob-menu" id="mobMenu">
+        <a href="#glance" onclick="toggleMob()">Interest</a>
+        <a href="#cfp" onclick="toggleMob()">Call for Papers</a>
+        <a href="#dates" onclick="toggleMob()">Dates</a>
+        <a href="#committee" onclick="toggleMob()">Committee</a>
+        <a href="#contact" onclick="toggleMob()">Contact</a>
+        <a href="#" target="_blank" rel="noopener" style="color:var(--accent);border:none;margin-top:.5rem">Submit Paper
+            →</a>
     </div>
-  </nav>
 
-  <!-- MOBILE MENU -->
-  <div class="mob-menu" id="mobMenu">
-    <a href="#glance" onclick="toggleMob()">At a Glance</a>
-    <a href="#cfp" onclick="toggleMob()">Call for Papers</a>
-    <a href="#dates" onclick="toggleMob()">Dates</a>
-    <a href="#committee" onclick="toggleMob()">Committee</a>
-    <a href="#contact" onclick="toggleMob()">Contact</a>
-    <a href="https://edas.info" target="_blank" rel="noopener"
-      style="color:var(--accent);border:none;margin-top:.5rem">Submit Paper →</a>
-  </div>
-
-  <!-- HERO -->
-  <section id="hero">
-    <div class="hero-glow-1"></div>
-    <div class="hero-glow-2"></div>
-    <div class="hero-grid"></div>
-    <div class="hero-scan"></div>
-    <div class="hero-inner">
-      <div>
-        <div class="hero-badge">
-          <div class="badge-dot"></div>Workshop · IEEE MENACOM 2026
-        </div>
-        <div class="hero-title-wrap">
-          <h1 class="hero-title" id="heroTitle">Agentic AI<br><span class="dim">for IoT</span></h1>
-          <div class="hero-org">
-            <div class="logo-space"><img src="pic/creative-lab.png" alt="Creative Lab Logo"></div>
-            <p class="org-text">Technically organized by<br>Creative Labs, BPDC</p>
-          </div>
-        </div>
-        <p class="hero-sub">Autonomous Decision-Making and Real-World Deployments. Exploring agentic AI architectures
-          across edge, fog, and cloud for next-generation IoT ecosystems.</p>
-        <div class="hero-actions">
-          <a class="btn-primary" href="https://edas.info" target="_blank" rel="noopener">Submit Paper →</a>
-          <a class="btn-ghost" href="#cfp">Call for Papers</a>
-        </div>
-      </div>
-      <div class="hero-meta">
-        <div class="hero-meta-item"><span class="meta-label">Date</span><span class="meta-value">May 12, 2026</span>
-        </div>
-        <div class="hero-meta-item"><span class="meta-label">Venue</span><span class="meta-value">IEEE MENACOM
-            2026</span></div>
-        <div class="hero-meta-item"><span class="meta-label">Proceedings</span><span class="meta-value">IEEE
-            Xplore</span></div>
-        <div class="hero-meta-item"><span class="meta-label">Submission</span><span class="meta-value">via EDAS</span>
-        </div>
-      </div>
-    </div>
-    <div class="scroll-cue">
-      <div class="scroll-line"></div><span class="scroll-text">Scroll</span>
-    </div>
-  </section>
-
-  <!-- AT A GLANCE -->
-  <section id="glance">
-    <div class="container">
-      <div class="section-header">
-        <div class="slide-l">
-          <div class="eyebrow">At a Glance</div>
-          <h2 class="section-title">What this<br>workshop covers</h2>
-        </div>
-        <p class="section-desc slide-r">Agentic AI enables autonomous, goal-driven intelligence distributed across edge,
-          fog, and cloud — ideal for next-generation IoT ecosystems.</p>
-      </div>
-      <div class="glance-grid">
-        <div class="glance-card fade-in"> <span class="glance-n">01</span>
-          <div class="glance-label">Architectures</div>
-          <div class="glance-text">Autonomous and collaborative IoT agent architectures across edge–fog–cloud layers.
-          </div>
-        </div>
-        <div class="glance-card fade-in d1"><span class="glance-n">02</span>
-          <div class="glance-label">Learning & Planning</div>
-          <div class="glance-text">Decision-making under uncertainty, continual learning, and multi-agent RL.</div>
-        </div>
-        <div class="glance-card fade-in d2"><span class="glance-n">03</span>
-          <div class="glance-label">Edge Intelligence</div>
-          <div class="glance-text">Deployment on constrained devices, energy-aware, real-time operations.</div>
-        </div>
-        <div class="glance-card fade-in d3"><span class="glance-n">04</span>
-          <div class="glance-label">Security & Trust</div>
-          <div class="glance-text">Privacy-preserving, explainable, and responsible governance for agentic IoT.</div>
-        </div>
-        <div class="glance-card fade-in d4"><span class="glance-n">05</span>
-          <div class="glance-label">Digital Twins</div>
-          <div class="glance-text">Agent-enabled digital twins, self-healing infrastructure, sim-to-real transfer.</div>
-        </div>
-        <div class="glance-card fade-in d5"><span class="glance-n">06</span>
-          <div class="glance-label">Use Cases</div>
-          <div class="glance-text">Smart cities, industrial IoT, healthcare, energy management, environmental
-            monitoring.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CALL FOR PAPERS -->
-  <section id="cfp">
-    <div class="container">
-      <div class="section-header">
-        <div class="slide-l">
-          <div class="eyebrow">Call for Papers</div>
-          <h2 class="section-title">Topics of<br>Interest</h2>
-        </div>
-        <p class="section-desc slide-r">Original, unpublished research and industry contributions including case studies
-          and prototypes.</p>
-      </div>
-      <div class="topics-grid">
-        <div class="topic-card scale-in"> <span class="topic-n">01</span>
-          <div class="topic-group">Agentic AI Foundations</div>
-          <ul class="topic-list">
-            <li>Agent-based architectures for IoT</li>
-            <li>Multi-agent systems & coordination</li>
-            <li>Goal-driven, autonomous agent models</li>
-            <li>Distributed intelligence edge–fog–cloud</li>
-          </ul>
-        </div>
-        <div class="topic-card scale-in d1"><span class="topic-n">02</span>
-          <div class="topic-group">Learning & Reasoning</div>
-          <ul class="topic-list">
-            <li>Reinforcement learning & MARL</li>
-            <li>Federated & continual learning</li>
-            <li>Planning under uncertainty</li>
-            <li>Context-aware, self-adaptive agents</li>
-          </ul>
-        </div>
-        <div class="topic-card scale-in d2"><span class="topic-n">03</span>
-          <div class="topic-group">Edge Intelligence</div>
-          <ul class="topic-list">
-            <li>Lightweight models for constrained devices</li>
-            <li>Energy-aware, real-time operations</li>
-            <li>Deployment on gateways & microcontrollers</li>
-          </ul>
-        </div>
-        <div class="topic-card scale-in d3"><span class="topic-n">04</span>
-          <div class="topic-group">Security & Governance</div>
-          <ul class="topic-list">
-            <li>Secure communication & authentication</li>
-            <li>Trust modeling & reputation systems</li>
-            <li>Privacy-preserving intelligence</li>
-            <li>Ethical, accountable AI agents</li>
-          </ul>
-        </div>
-        <div class="topic-card scale-in d4"><span class="topic-n">05</span>
-          <div class="topic-group">Digital Twins & CPS</div>
-          <ul class="topic-list">
-            <li>Agent-enabled digital twins</li>
-            <li>Simulation-to-reality transfer</li>
-            <li>Self-healing, resilient infrastructure</li>
-          </ul>
-        </div>
-        <div class="topic-card scale-in d5"><span class="topic-n">06</span>
-          <div class="topic-group">Applications</div>
-          <ul class="topic-list">
-            <li>Smart cities & transportation</li>
-            <li>Industrial IoT & manufacturing</li>
-            <li>Smart grids & energy management</li>
-            <li>Healthcare IoT</li>
-            <li>Environmental monitoring</li>
-          </ul>
-        </div>
-      </div>
-      <div class="sub-box fade-in">
-        <div>
-          <div class="sub-title">Submission Guidelines</div>
-          <ul class="sub-list">
-            <li>Original, unpublished work not under review elsewhere</li>
-            <li>IEEE conference paper format</li>
-            <li>Regular papers: up to 6 pages</li>
-            <li>Short / Vision / Industry papers: up to 4 pages</li>
-            <li>Accepted papers published in IEEE Xplore proceedings</li>
-          </ul>
-        </div>
-        <div class="sub-actions">
-          <a class="btn-primary" style="text-align:center" href="https://edas.info" target="_blank"
-            rel="noopener">Submit on EDAS →</a>
-          <a class="btn-ghost" style="text-align:center"
-            href="https://www.ieee.org/conferences/publishing/templates.html" target="_blank" rel="noopener">IEEE
-            Template</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- IMPORTANT DATES -->
-  <section id="dates">
-    <div class="container">
-      <div class="section-header">
-        <div class="slide-l">
-          <div class="eyebrow">Key Deadlines</div>
-          <h2 class="section-title">Important Dates</h2>
-        </div>
-      </div>
-      <div class="dates-grid">
-        <div class="date-card past fade-in"> <span class="date-n">01</span>
-          <div class="date-value">Mar 15, 2026</div>
-          <div class="date-label">Paper Submission Deadline</div>
-        </div>
-        <div class="date-card fade-in d1"> <span class="date-n">02</span>
-          <div class="date-value">Mar 29, 2026</div>
-          <div class="date-label">Notification of Acceptance</div>
-        </div>
-        <div class="date-card fade-in d2"> <span class="date-n">03</span>
-          <div class="date-value">Apr 12, 2026</div>
-          <div class="date-label">Camera-Ready Submission</div>
-        </div>
-        <div class="date-card hi fade-in d3"> <span class="date-n">04</span>
-          <div class="date-value">May 12, 2026</div>
-          <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Agentic+AI+for+IoT+Workshop&dates=20260512T050000Z/20260512T130000Z&details=Workshop+for+IEEE+MENACOM+2026+at+BITS+Pilani+Dubai+Campus&location=BITS+Pilani+Dubai+Campus,+International+Academic+City,+Dubai&sf=true&output=xml"
-            rel="noopener" target="_blank" style="text-decoration: none;">
-            <div class="date-label">Workshop Date</div><span class="date-badge">🗓 Mark your calendar</span>
-          </a>
-        </div>
-      </div>
-      <p class="date-note fade-in">* Camera-ready date will be updated once the MENACOM 2026 workshop schedule is
-        finalized.</p>
-    </div>
-  </section>
-
-  <!-- COMMITTEE -->
-  <section id="committee">
-    <div class="container">
-      <div class="section-header">
-        <div class="slide-l">
-          <div class="eyebrow">Organizing Committee</div>
-          <h2 class="section-title">Workshop<br>Organizers</h2>
-        </div>
-      </div>
-      <div class="org-grid">
-        <div class="org-card fade-in">
-          <div class="org-av"><img src="pic/Mithun.jpeg" alt="Mithun Mukherjee"></div>
-          <div class="org-name">Mithun Mukherjee</div>
-          <div class="org-aff">BITS Pilani, Dubai Campus, UAE</div><span class="org-tag">Workshop Organizer</span><a
-            class="org-email" href="mailto:mithun@dubai.bits-pilani.ac.in">mithun@dubai.bits-pilani.ac.in</a>
-        </div>
-        <div class="org-card fade-in d1">
-          <div class="org-av"><img src="pic/mavro.jpg" alt="Constandinos Mavromoustakis"></div>
-          <div class="org-name">Constandinos Mavromoustakis</div>
-          <div class="org-aff">University of Nicosia, Cyprus</div><span class="org-tag">TPC Chair</span>
-        </div>
-        <div class="org-card fade-in d2">
-          <div class="org-av"><img src="pic/pranav.jpg" alt="Pranav Pawar"></div>
-          <div class="org-name">Pranav Pawar</div>
-          <div class="org-aff">BITS Pilani, Dubai Campus, UAE</div><span class="org-tag">Workshop Organizer</span>
-        </div>
-        <div class="org-card fade-in d3">
-          <div class="org-av"><img src="pic/pan.jpg" alt="Zhigeng Pan"></div>
-          <div class="org-name">Zhigeng Pan</div>
-          <div class="org-aff">Beihang University, China</div><span class="org-tag">Workshop Organizer</span>
-        </div>
-        <div class="org-card fade-in d4">
-          <div class="org-av"><img src="pic/kaneez.jpg" alt="Kaneez Fizza"></div>
-          <div class="org-name">Kaneez Fizza</div>
-          <div class="org-aff">Swinburne University of Technology, Australia</div><span class="org-tag">Workshop
-            Organizer</span>
-        </div>
-      </div>
-      <div class="com-title fade-in">Advisory Committee</div>
-      <div class="adv-grid">
-        <div class="adv-item fade-in">
-          <div class="adv-av">AB</div>
-          <div>
-            <div class="adv-name">Ahcene Bouncer</div>
-            <div class="adv-aff">University of Sharjah, UAE</div>
-          </div>
-        </div>
-        <div class="adv-item fade-in d1">
-          <div class="adv-av">RH</div>
-          <div>
-            <div class="adv-name">Rajesh Hegde</div>
-            <div class="adv-aff">IIT Kanpur, India</div>
-          </div>
-        </div>
-      </div>
-      <div class="com-title fade-in">TPC Members</div>
-      <div class="tpc-grid">
-        <div class="tpc-item fade-in">
-          <div class="tpc-dot"></div>
-          <div>
-            <div class="tpc-name">Maisam Wahbah</div>
-            <div class="tpc-aff">University of Dubai, UAE</div>
-          </div>
-        </div>
-        <div class="tpc-item fade-in d1">
-          <div class="tpc-dot"></div>
-          <div>
-            <div class="tpc-name">Zhihong Sun</div>
-            <div class="tpc-aff">Naval University of Engineering, China</div>
-          </div>
-        </div>
-        <div class="tpc-item fade-in d2">
-          <div class="tpc-dot"></div>
-          <div>
-            <div class="tpc-name">Suman Kr. Dey</div>
-            <div class="tpc-aff">NIT Rourkela, India</div>
-          </div>
-        </div>
-        <div class="tpc-item fade-in d3">
-          <div class="tpc-dot"></div>
-          <div>
-            <div class="tpc-name">Mian Guo</div>
-            <div class="tpc-aff">Guangdong Polytechnic Normal University, China</div>
-          </div>
-        </div>
-        <div class="tpc-item fade-in">
-          <div class="tpc-dot"></div>
-          <div>
-            <div class="tpc-name">Raja Muthalagu</div>
-            <div class="tpc-aff">BITS Pilani, Dubai Campus, UAE</div>
-          </div>
-        </div>
-        <div class="tpc-item fade-in d1">
-          <div class="tpc-dot"></div>
-          <div>
-            <div class="tpc-name">Prashant Kumar</div>
-            <div class="tpc-aff">NIT Jamshedpur, India</div>
-          </div>
-        </div>
-        <div class="tpc-item fade-in d2">
-          <div class="tpc-dot"></div>
-          <div>
-            <div class="tpc-name">Razi Iqbal</div>
-            <div class="tpc-aff">Central Michigan University, USA</div>
-          </div>
-        </div>
-        <div class="tpc-item fade-in d3">
-          <div class="tpc-dot"></div>
-          <div>
-            <div class="tpc-name">Sujala Shetty</div>
-            <div class="tpc-aff">BITS Pilani, Dubai Campus, UAE</div>
-          </div>
-        </div>
-        <div class="tpc-item fade-in">
-          <div class="tpc-dot"></div>
-          <div>
-            <div class="tpc-name">Qi Zhang</div>
-            <div class="tpc-aff">Aarhus University, Denmark</div>
-          </div>
-        </div>
-        <div class="tpc-item fade-in d1">
-          <div class="tpc-dot"></div>
-          <div>
-            <div class="tpc-name">Georgios Th. Papadopoulos</div>
-            <div class="tpc-aff">Harokopio University of Athens, Greece</div>
-          </div>
-        </div>
-        <div class="tpc-item fade-in d2">
-          <div class="tpc-dot"></div>
-          <div>
-            <div class="tpc-name">Mariusz Rawski</div>
-            <div class="tpc-aff">Warsaw University of Technology, Poland</div>
-          </div>
-        </div>
-        <div class="tpc-item fade-in d3">
-          <div class="tpc-dot"></div>
-          <div>
-            <div class="tpc-name">Quoc-Viet Pham</div>
-            <div class="tpc-aff">Trinity College Dublin, Ireland</div>
-          </div>
-        </div>
-        <div class="tpc-item fade-in">
-          <div class="tpc-dot"></div>
-          <div>
-            <div class="tpc-name">George Mastorakis</div>
-            <div class="tpc-aff">Hellenic Mediterranean University, Greece</div>
-          </div>
-        </div>
-        <div class="tpc-item fade-in d1">
-          <div class="tpc-dot"></div>
-          <div>
-            <div class="tpc-name">Elina Daskalaki</div>
-            <div class="tpc-aff">SciSTRUCT LTD</div>
-          </div>
-        </div>
-        <div class="tpc-item fade-in d2">
-          <div class="tpc-dot"></div>
-          <div>
-            <div class="tpc-name">Jordi Mongay Batalla</div>
-            <div class="tpc-aff">Military University of Technology, Warsaw, Poland</div>
-          </div>
-        </div>
-        <div class="tpc-item fade-in d3">
-          <div class="tpc-dot"></div>
-          <div>
-            <div class="tpc-name">Periklis Chatzimisios</div>
-            <div class="tpc-aff">International Hellenic University, Greece &amp; UNM, USA</div>
-          </div>
-        </div>
-        <div class="tpc-item fade-in">
-          <div class="tpc-dot"></div>
-          <div>
-            <div class="tpc-name">Christos Xenakis</div>
-            <div class="tpc-aff">University of Piraeus, Greece</div>
-          </div>
-        </div>
-        <div class="tpc-item fade-in d1">
-          <div class="tpc-dot"></div>
-          <div>
-            <div class="tpc-name">Panagiotis Sarigiannidis</div>
-            <div class="tpc-aff">University of Western Macedonia, Greece</div>
-          </div>
-        </div>
-        <div class="tpc-item fade-in d2">
-          <div class="tpc-dot"></div>
-          <div>
-            <div class="tpc-name">Demosthenes Vouyioukas</div>
-            <div class="tpc-aff">University of Piraeus, Greece</div>
-          </div>
-        </div>
-        <div class="tpc-item fade-in d3">
-          <div class="tpc-dot"></div>
-          <div>
-            <div class="tpc-name">Andreas Andreou</div>
-            <div class="tpc-aff">University of Nicosia, Cyprus</div>
-          </div>
-        </div>
-        <div class="tpc-item fade-in">
-          <div class="tpc-dot"></div>
-          <div>
-            <div class="tpc-name">Vaibhav Raheja</div>
-            <div class="tpc-aff">Google, Seattle, USA</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="container">
-      <div class="contact-grid">
-        <div class="slide-l">
-          <div class="eyebrow">Contact</div>
-          <h2 class="section-title">Get in Touch</h2>
-          <p
-            style="font-size:14px;color:var(--text-m);max-width:380px;line-height:1.7;margin-top:1rem;transition:color .35s">
-            For inquiries about the workshop, paper submissions, or general questions. Please use the subject prefix
-            <span class="prefix">[Agentic AI WS]</span> in all correspondence.
-          </p>
-        </div>
-        <div class="slide-r">
-          <div class="contact-card">
-            <div class="c-icon">✉️</div>
+    <!-- HERO -->
+    <section id="hero">
+        <div class="hero-glow-1"></div>
+        <div class="hero-glow-2"></div>
+        <div class="hero-grid"></div>
+        <div class="hero-scan"></div>
+        <div class="hero-inner">
             <div>
-              <div class="c-name">Mithun Mukherjee</div>
-              <div class="c-role">Workshop Organizer</div>
-              <div class="c-aff">BITS Pilani, Dubai Campus, UAE</div>
+                <div class="hero-badge">
+                    <div class="badge-dot"></div>Workshop · IWQoS 2026
+                </div>
+                <div class="hero-title-wrap">
+                    <h1 class="hero-title" id="heroTitle">QSP-AI<br><span class="dim">MetaTwin</span></h1>
+                    <div class="hero-org">
+                        <div class="logo-space"><img src="pic/creative-lab.png" alt="Logo"></div>
+                        <p class="org-text">QoS-Aware Security and Privacy<br>for AI-Driven Systems</p>
+                    </div>
+                </div>
+                <p class="hero-sub">Workshop on QoS-Aware Security and Privacy for AI-Driven Digital Twin and Metaverse
+                    Systems (QSP-AI-MetaTwin). Co-located with IWQoS 2026.</p>
+                <div class="hero-actions">
+                    <a class="btn-primary" href="#" target="_blank" rel="noopener">Submit Paper →</a>
+                    <a class="btn-ghost" href="#cfp">Call for Papers</a>
+                </div>
             </div>
-            <a class="c-email" href="mailto:mithun@dubai.bits-pilani.ac.in">mithun@dubai.bits-pilani.ac.in</a>
-            <div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-top:.5rem">
-              <a class="btn-primary" style="font-size:12px;padding:.55rem 1.25rem"
-                href="mailto:mithun@dubai.bits-pilani.ac.in?subject=[Agentic AI WS]">Send Email →</a>
-              <a class="btn-ghost" style="font-size:12px;padding:.55rem 1.25rem" href="https://edas.info"
-                target="_blank" rel="noopener">Submit Paper</a>
+            <div class="hero-meta">
+                <div class="hero-meta-item"><span class="meta-label">Date</span><span class="meta-value">June 30,
+                        2026</span>
+                </div>
+                <div class="hero-meta-item"><span class="meta-label">Venue</span><span class="meta-value">IWQoS
+                        2026</span></div>
+                <div class="hero-meta-item"><span class="meta-label">Proceedings</span><span class="meta-value">IEEE
+                        Xplore</span></div>
+                <div class="hero-meta-item"><span class="meta-label">Submission</span><span class="meta-value">via
+                        TBD</span>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </section>
+        <div class="scroll-cue">
+            <div class="scroll-line"></div><span class="scroll-text">Scroll</span>
+        </div>
+    </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="f-logo">Agentic AI for IoT · IEEE MENACOM 2026</div>
-    <div class="f-note">Workshop · May 12, 2026 · Published in IEEE Xplore · Author Himesh </div>
-  </footer>
+    <!-- AT A GLANCE (Interest) -->
+    <section id="glance">
+        <div class="container">
+            <div class="section-header">
+                <div class="slide-l">
+                    <div class="eyebrow">A Brief Statement of Interest</div>
+                    <h2 class="section-title">Converging QoS, AI,<br>and Trust</h2>
+                </div>
+                <p class="section-desc slide-r">AI-driven Digital Twin and Metaverse systems are changing how physical
+                    and virtual environments interact. These ecosystems depend on large-scale data exchange and
+                    edge-cloud infrastructures with strict QoS guarantees.</p>
+            </div>
+            <div class="glance-grid">
+                <div class="glance-card fade-in"> <span class="glance-n">01</span>
+                    <div class="glance-label">Intelligent Twins</div>
+                    <div class="glance-text">Enabling real-time monitoring and immersive collaboration in smart cities,
+                        healthcare, and industrial automation.</div>
+                </div>
+                <div class="glance-card fade-in d1"><span class="glance-n">02</span>
+                    <div class="glance-label">QoS Guarantees</div>
+                    <div class="glance-text">Strict requirements for latency, reliability, scalability, and availability
+                        in distributed AI infrastructures.</div>
+                </div>
+                <div class="glance-card fade-in d2"><span class="glance-n">03</span>
+                    <div class="glance-label">Attack Surface</div>
+                    <div class="glance-text">Sensitive sensor data and AI pipelines create risks for leaks, side-channel
+                        attacks, and identity theft.</div>
+                </div>
+                <div class="glance-card fade-in d3"><span class="glance-n">04</span>
+                    <div class="glance-label">Integrated Security</div>
+                    <div class="glance-text">Current security measures often work separately from QoS, slowing down
+                        real-time application needs.</div>
+                </div>
+                <div class="glance-card fade-in d4"><span class="glance-n">05</span>
+                    <div class="glance-label">Trustworthy Infra</div>
+                    <div class="glance-text">Advancing research to ensure both performance guarantees and
+                        trustworthiness in new digital infrastructures.</div>
+                </div>
+                <div class="glance-card fade-in d5"><span class="glance-n">06</span>
+                    <div class="glance-label">Interdisciplinary</div>
+                    <div class="glance-text">Brining together networking, distributed systems, security, and AI
+                        communities for integrated solutions.</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <script>
-    /* ── THEME TOGGLE ── */
-    const html = document.documentElement;
-    const btn = document.getElementById('themeBtn');
-    const saved = localStorage.getItem('ws-theme');
-    const sys = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    <!-- TECHNICAL DESCRIPTION -->
+    <section id="description">
+        <div class="container">
+            <div class="section-header">
+                <div class="slide-l">
+                    <div class="eyebrow">Technical Description</div>
+                    <h2 class="section-title">Future-Proofing<br>Virtual Systems</h2>
+                </div>
+                <p class="section-desc slide-r">Digital twins and Metaverse platforms create permanent, shared virtual
+                    spaces that allow for large-scale human interaction and collaboration.</p>
+            </div>
+            <div class="sub-box fade-in" style="grid-template-columns: 1fr;">
+                <p style="font-size: 15px; color: var(--text-m); line-height: 1.8; margin-bottom: 1.5rem;">
+                    Digital Twin and Metaverse systems powered by AI are becoming important technologies for future
+                    cyber-physical and immersive computing environments. Digital twins create virtual versions of
+                    real-world systems so that they can be monitored, simulated, and improved. Metaverse platforms, on
+                    the other hand, create permanent, shared virtual spaces that allow for large-scale human interaction
+                    and collaboration.
+                </p>
+                <p style="font-size: 15px; color: var(--text-m); line-height: 1.8;">
+                    The conventional methods for security and privacy frequently result in computational overhead or
+                    communication delays that can adversely affect Quality of Service (QoS). So, there is a very
+                    important need for integrated frameworks that work together to improve both QoS and security/privacy
+                    in AI-enabled distributed environments.
+                </p>
+            </div>
+        </div>
+    </section>
 
-    function applyTheme(t, flash) {
-      html.setAttribute('data-theme', t);
-      localStorage.setItem('ws-theme', t);
-      if (flash) {
-        const el = document.createElement('div');
-        el.className = 'theme-flash';
-        document.body.appendChild(el);
-        el.addEventListener('animationend', () => el.remove(), { once: true });
-      }
-    }
-    applyTheme(saved || sys, false);
+    <!-- CALL FOR PAPERS -->
+    <section id="cfp">
+        <div class="container">
+            <div class="section-header">
+                <div class="slide-l">
+                    <div class="eyebrow">Call for Papers</div>
+                    <h2 class="section-title">Topics of<br>Interest</h2>
+                </div>
+                <p class="section-desc slide-r">Integrating QoS management with security and privacy mechanisms in
+                    AI-driven ecosystems.</p>
+            </div>
+            <div class="topics-grid">
+                <div class="topic-card scale-in"> <span class="topic-n">01</span>
+                    <div class="topic-group">Frameworks & AI</div>
+                    <ul class="topic-list">
+                        <li>QoS-aware security & privacy frameworks</li>
+                        <li>AI-driven threat detection & mitigation</li>
+                        <li>Privacy-preserving federated learning</li>
+                        <li>AI-based anomaly detection</li>
+                    </ul>
+                </div>
+                <div class="topic-card scale-in d1"><span class="topic-n">02</span>
+                    <div class="topic-group">Infrastructure & Protocols</div>
+                    <ul class="topic-list">
+                        <li>Edge intelligence for immersive platforms</li>
+                        <li>Secure low-latency protocols</li>
+                        <li>Secure edge-cloud orchestration</li>
+                        <li>Blockchain-based trust mechanisms</li>
+                    </ul>
+                </div>
+                <div class="topic-card scale-in d2"><span class="topic-n">03</span>
+                    <div class="topic-group">Control & Analysis</div>
+                    <ul class="topic-list">
+                        <li>Identity management in the Metaverse</li>
+                        <li>Adaptive cryptographic mechanisms</li>
+                        <li>Performance analysis under QoS constraints</li>
+                        <li>Case studies of secure AI twins</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="sub-box fade-in">
+                <div>
+                    <div class="sub-title">Submission Guidelines</div>
+                    <ul class="sub-list">
+                        <li>Original, unpublished work (IEEE conference format)</li>
+                        <li>Page length: typically 6–8 pages</li>
+                        <li>Review process: Peer review by at least three experts</li>
+                        <li>Accepted papers presented at the workshop</li>
+                        <li>Possible post-workshop publication in special issues</li>
+                    </ul>
+                </div>
+                <div class="sub-actions">
+                    <a class="btn-primary" style="text-align:center" href="#" target="_blank" rel="noopener">Submission
+                        Platform (TBD) →</a>
+                    <a class="btn-ghost" style="text-align:center"
+                        href="https://www.ieee.org/conferences/publishing/templates.html" target="_blank"
+                        rel="noopener">IEEE
+                        Template</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    btn.addEventListener('click', () => {
-      applyTheme(html.dataset.theme === 'dark' ? 'light' : 'dark', true);
-    });
+    <!-- IMPORTANT DATES -->
+    <section id="dates">
+        <div class="container">
+            <div class="section-header">
+                <div class="slide-l">
+                    <div class="eyebrow">Key Deadlines</div>
+                    <h2 class="section-title">Important Dates</h2>
+                </div>
+            </div>
+            <div class="dates-grid">
+                <div class="date-card fade-in" data-date="2026-04-30"> <span class="date-n">01</span>
+                    <div class="date-value">Apr 30, 2026</div>
+                    <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Full+Paper+Submission+-+QSP-AI-MetaTwin+2026&dates=20260430/20260431&details=Submission+deadline+for+the+Workshop+on+QoS-Aware+Security+and+Privacy+for+AI-Driven+Digital+Twin+and+Metaverse+Systems+(QSP-AI-MetaTwin).&location=Online"
+                        rel="noopener" target="_blank" style="text-decoration: none;">
+                        <div class="date-label">Full Paper Submission</div><span class="date-badge">🗓 Add to
+                            Calendar</span>
+                    </a>
+                </div>
+                <div class="date-card fade-in d1" data-date="2026-05-20"> <span class="date-n">02</span>
+                    <div class="date-value">May 20, 2026</div>
+                    <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Acceptance+Notification+-+QSP-AI-MetaTwin+2026&dates=20260520/20260521&details=Notification+of+acceptance+for+the+Workshop+on+QoS-Aware+Security+and+Privacy+for+AI-Driven+Digital+Twin+and+Metaverse+Systems+(QSP-AI-MetaTwin).&location=Online"
+                        rel="noopener" target="_blank" style="text-decoration: none;">
+                        <div class="date-label">Notification of Acceptance</div><span class="date-badge">🗓 Add to
+                            Calendar</span>
+                    </a>
+                </div>
+                <div class="date-card fade-in d2" data-date="2026-05-30"> <span class="date-n">03</span>
+                    <div class="date-value">May 30, 2026</div>
+                    <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Camera+Ready+Submission+-+QSP-AI-MetaTwin+2026&dates=20260530/20260531&details=Camera-ready+submission+deadline+for+the+Workshop+on+QoS-Aware+Security+and+Privacy+for+AI-Driven+Digital+Twin+and+Metaverse+Systems+(QSP-AI-MetaTwin).&location=Online"
+                        rel="noopener" target="_blank" style="text-decoration: none;">
+                        <div class="date-label">Camera Ready Submission</div><span class="date-badge">🗓 Add to
+                            Calendar</span>
+                    </a>
+                </div>
+                <div class="date-card hi fade-in d3" data-date="2026-06-30"> <span class="date-n">04</span>
+                    <div class="date-value">June 30, 2026</div>
+                    <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Workshop+Date+-+QSP-AI-MetaTwin+2026&dates=20260630/20260701&details=Workshop+on+QoS-Aware+Security+and+Privacy+for+AI-Driven+Digital+Twin+and+Metaverse+Systems+(QSP-AI-MetaTwin).+Co-located+with+IWQoS+2026.&location=IWQoS+2026"
+                        rel="noopener" target="_blank" style="text-decoration: none;">
+                        <div class="date-label">Workshop Date</div><span class="date-badge">🗓 Mark your calendar</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    /* ── NAV SCROLL ── */
-    const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40), { passive: true });
+    <!-- WORKSHOP FORMAT / AGENDA -->
+    <section id="agenda">
+        <div class="container">
+            <div class="section-header">
+                <div class="slide-l">
+                    <div class="eyebrow">Workshop Format</div>
+                    <h2 class="section-title">Agenda &<br>Highlights</h2>
+                </div>
+                <p class="section-desc slide-r">A half-day session featuring invited talks, paper presentations, and
+                    networking opportunities.</p>
+            </div>
+            <div class="sub-box fade-in" style="grid-template-columns: 1fr;">
+                <div class="sub-title">Half-Day Schedule</div>
+                <table style="width: 100%; border-collapse: collapse; font-size: 13.5px; color: var(--text-m);">
+                    <tr style="border-bottom: 1px solid var(--border); background: var(--surface2);">
+                        <th style="padding: 1rem; text-align: left; color: var(--text);">Time</th>
+                        <th style="padding: 1rem; text-align: left; color: var(--text);">Session</th>
+                        <th style="padding: 1rem; text-align: left; color: var(--text);">Description</th>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border);">
+                        <td style="padding: 1rem;">0:00 – 0:15</td>
+                        <td style="padding: 1rem;">Opening & Welcome</td>
+                        <td style="padding: 1rem;">Introduction by organizers, goals and schedule</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border);">
+                        <td style="padding: 1rem;">0:15 – 1:00</td>
+                        <td style="padding: 1rem;">Invited Talk (Online)</td>
+                        <td style="padding: 1rem;">Keynote by a leading researcher</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border);">
+                        <td style="padding: 1rem;">1:00 – 2:30</td>
+                        <td style="padding: 1rem;">Paper Session 1</td>
+                        <td style="padding: 1rem;">3 contributed papers with Q&A</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border);">
+                        <td style="padding: 1rem;">2:30 – 2:45</td>
+                        <td style="padding: 1rem;">Networking Break</td>
+                        <td style="padding: 1rem;">Informal discussions</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border);">
+                        <td style="padding: 1rem;">2:45 – 3:45</td>
+                        <td style="padding: 1rem;">Paper Session 2</td>
+                        <td style="padding: 1rem;">2–3 contributed papers with Q&A</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 1rem;">3:45 – 4:00</td>
+                        <td style="padding: 1rem;">Closing Remarks</td>
+                        <td style="padding: 1rem;">Key takeaways and collaborations</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
 
-    /* ── MOBILE MENU ── */
-    function toggleMob() { document.getElementById('mobMenu').classList.toggle('open'); }
+    <!-- COMMITTEE -->
+    <section id="committee">
+        <div class="container">
+            <div class="section-header">
+                <div class="slide-l">
+                    <div class="eyebrow">Organizing Committee</div>
+                    <h2 class="section-title">Workshop<br>Organizers</h2>
+                </div>
+            </div>
+            <div class="org-grid">
+                <div class="org-card fade-in">
+                    <a href="https://www.linkedin.com/in/mithun-mukherjee-1a844363/" target="_blank" rel="noopener"
+                        class="org-av">
+                        <img src="pic/Mithun.jpeg" alt="Mithun Mukherjee">
+                    </a>
+                    <div class="org-name">Mithun Mukherjee</div>
+                    <div class="org-aff">BITS Pilani, Dubai Campus, UAE</div><span class="org-tag">Organizer</span><a
+                        class="org-email"
+                        href="mailto:mithun@dubai.bits-pilani.ac.in">mithun@dubai.bits-pilani.ac.in</a>
+                </div>
+                <div class="org-card fade-in d1">
+                    <a href="https://www.linkedin.com/in/dr-pranav-pawar-a2b0a115/" target="_blank" rel="noopener"
+                        class="org-av">
+                        <img src="pic/pranav.jpg" alt="Pranav M Pawar">
+                    </a>
+                    <div class="org-name">Pranav M Pawar</div>
+                    <div class="org-aff">BITS Pilani, Dubai Campus, UAE</div><span class="org-tag">Organizer</span><a
+                        class="org-email"
+                        href="mailto:pranav@dubai.bits-pilani.ac.in">pranav@dubai.bits-pilani.ac.in</a>
+                </div>
+                <div class="org-card fade-in d2">
+                    <a href="https://www.linkedin.com/in/zhigeng-pan-b6b9a617/" target="_blank" rel="noopener"
+                        class="org-av">
+                        <img src="pic/pan.jpg" alt="Zhigeng Pan">
+                    </a>
+                    <div class="org-name">Zhigeng Pan</div>
+                    <div class="org-aff">Beihang University, China</div><span class="org-tag">Organizer</span><a
+                        class="org-email" href="mailto:003443@nuist.edu.cn">003443@nuist.edu.cn</a>
+                </div>
+            </div>
 
-    /* ── SCROLL REVEAL ── */
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); } });
-    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
-    document.querySelectorAll('.fade-in,.slide-l,.slide-r,.scale-in').forEach(el => obs.observe(el));
+            <!-- TPC CHAIRS -->
+            <div class="com-title fade-in">TPC Chairs</div>
+            <div class="adv-grid">
+                <div class="adv-item fade-in">
+                    <div class="adv-av">RM</div>
+                    <div>
+                        <div class="adv-name">Raja Muthalagu</div>
+                        <div class="adv-aff">BITS Pilani, Dubai Campus, UAE</div>
+                    </div>
+                </div>
+                <div class="adv-item fade-in d1">
+                    <div class="adv-av">AB</div>
+                    <div>
+                        <div class="adv-name">Ahcene Bounceur</div>
+                        <div class="adv-aff">University of Sharjah, UAE</div>
+                    </div>
+                </div>
+            </div>
 
-    /* ── HERO TITLE SHIMMER ── */
-    window.addEventListener('load', () => {
-      setTimeout(() => document.getElementById('heroTitle').classList.add('shimmer'), 900);
-    });
+            <div class="com-title fade-in">Program Committee Members</div>
+            <div class="tpc-grid">
+                <div class="tpc-item fade-in">
+                    <div class="tpc-dot"></div>
+                    <div>
+                        <div class="tpc-name">Zhihong Sun</div>
+                        <div class="tpc-aff">Naval University of Engineering, China</div>
+                    </div>
+                </div>
+                <div class="tpc-item fade-in d1">
+                    <div class="tpc-dot"></div>
+                    <div>
+                        <div class="tpc-name">Suman Kr. Dey</div>
+                        <div class="tpc-aff">NIT Rourkela, India</div>
+                    </div>
+                </div>
+                <div class="tpc-item fade-in d2">
+                    <div class="tpc-dot"></div>
+                    <div>
+                        <div class="tpc-name">Mian Guo</div>
+                        <div class="tpc-aff">Guangdong Polytechnic Normal University, China</div>
+                    </div>
+                </div>
+                <div class="tpc-item fade-in d3">
+                    <div class="tpc-dot"></div>
+                    <div>
+                        <div class="tpc-name">Neeli Rashmi Prasad</div>
+                        <div class="tpc-aff">Smart Avatar B V, Netherlands</div>
+                    </div>
+                </div>
+                <div class="tpc-item fade-in">
+                    <div class="tpc-dot"></div>
+                    <div>
+                        <div class="tpc-name">Prashant Kumar</div>
+                        <div class="tpc-aff">NIT Jamshedpur, India</div>
+                    </div>
+                </div>
+                <div class="tpc-item fade-in d1">
+                    <div class="tpc-dot"></div>
+                    <div>
+                        <div class="tpc-name">Razi Iqbal</div>
+                        <div class="tpc-aff">Central Michigan University, USA</div>
+                    </div>
+                </div>
+                <div class="tpc-item fade-in d2">
+                    <div class="tpc-dot"></div>
+                    <div>
+                        <div class="tpc-name">Qi Zhang</div>
+                        <div class="tpc-aff">Aarhus University, Denmark</div>
+                    </div>
+                </div>
+                <div class="tpc-item fade-in d3">
+                    <div class="tpc-dot"></div>
+                    <div>
+                        <div class="tpc-name">Kaustubh Chakradeo</div>
+                        <div class="tpc-aff">Aalborg University, Denmark</div>
+                    </div>
+                </div>
+                <div class="tpc-item fade-in">
+                    <div class="tpc-dot"></div>
+                    <div>
+                        <div class="tpc-name">Shital Patil</div>
+                        <div class="tpc-aff">Robert BOSCH, Dubai, UAE</div>
+                    </div>
+                </div>
+                <div class="tpc-item fade-in d1">
+                    <div class="tpc-dot"></div>
+                    <div>
+                        <div class="tpc-name">Mohammad Zubair Khan</div>
+                        <div class="tpc-aff">Islamic University of Madinah, Saudi Arabia</div>
+                    </div>
+                </div>
+                <div class="tpc-item fade-in d2">
+                    <div class="tpc-dot"></div>
+                    <div>
+                        <div class="tpc-name">Rajendra Patil</div>
+                        <div class="tpc-aff">BITS Pilani, Dubai Campus, UAE</div>
+                    </div>
+                </div>
+                <div class="tpc-item fade-in d3">
+                    <div class="tpc-dot"></div>
+                    <div>
+                        <div class="tpc-name">Adel Oulefki</div>
+                        <div class="tpc-aff">University of Dubai, UAE</div>
+                    </div>
+                </div>
+                <div class="tpc-item fade-in">
+                    <div class="tpc-dot"></div>
+                    <div>
+                        <div class="tpc-name">Malek Masmoudi</div>
+                        <div class="tpc-aff">University of Sharjah, UAE</div>
+                    </div>
+                </div>
+                <div class="tpc-item fade-in d1">
+                    <div class="tpc-dot"></div>
+                    <div>
+                        <div class="tpc-name">Dnyaneshwar Mantri</div>
+                        <div class="tpc-aff">University of Pune, India</div>
+                    </div>
+                </div>
+                <div class="tpc-item fade-in d2">
+                    <div class="tpc-dot"></div>
+                    <div>
+                        <div class="tpc-name">Nandkumar Kulkarni</div>
+                        <div class="tpc-aff">MIT-ADT University, India</div>
+                    </div>
+                </div>
+                <div class="tpc-item fade-in d3">
+                    <div class="tpc-dot"></div>
+                    <div>
+                        <div class="tpc-name">Prakash Aryan</div>
+                        <div class="tpc-aff">University of Bern, Switzerland</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    /* ── 3-D TILT on org cards ── */
-    document.querySelectorAll('.org-card').forEach(card => {
-      card.style.transition = 'border-color .2s, background .2s, box-shadow .25s';
-      card.addEventListener('mousemove', e => {
-        const r = card.getBoundingClientRect();
-        const x = (e.clientX - r.left) / r.width - .5;
-        const y = (e.clientY - r.top) / r.height - .5;
-        card.style.transform = `perspective(700px) rotateY(${x * 9}deg) rotateX(${-y * 6}deg) translateY(-3px)`;
-      });
-      card.addEventListener('mouseleave', () => card.style.transform = '');
-    });
-  </script>
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="slide-l">
+                    <div class="eyebrow">Contact</div>
+                    <h2 class="section-title">Get in Touch</h2>
+                    <p
+                        style="font-size:14px;color:var(--text-m);max-width:380px;line-height:1.7;margin-top:1rem;transition:color .35s">
+                        For inquiries about the workshop or paper submissions, please use the subject prefix
+                        <span class="prefix">[QSP-AI-MetaTwin]</span> in all correspondence.
+                    </p>
+                </div>
+                <div class="slide-r">
+                    <div class="contact-card">
+                        <div class="c-icon">✉️</div>
+                        <div>
+                            <div class="c-name">Mithun Mukherjee</div>
+                            <div class="c-role">Workshop Organizer</div>
+                            <div class="c-aff">BITS Pilani, Dubai Campus, UAE</div>
+                        </div>
+                        <a class="c-email"
+                            href="mailto:mithun@dubai.bits-pilani.ac.in">mithun@dubai.bits-pilani.ac.in</a>
+                        <div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-top:.5rem">
+                            <a class="btn-primary" style="font-size:12px;padding:.55rem 1.25rem"
+                                href="mailto:mithun@dubai.bits-pilani.ac.in?subject=[QSP-AI-MetaTwin]">Send Email →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="f-logo">QSP-AI-MetaTwin · IWQoS 2026</div>
+        <div class="f-note">Workshop · June 30, 2026 · Published in IEEE Xplore</div>
+    </footer>
+
+    <script>
+        /* ── THEME TOGGLE ── */
+        const html = document.documentElement;
+        const btn = document.getElementById('themeBtn');
+        const saved = localStorage.getItem('ws-theme');
+        const sys = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+
+        function applyTheme(t, flash) {
+            html.setAttribute('data-theme', t);
+            localStorage.setItem('ws-theme', t);
+            if (flash) {
+                const el = document.createElement('div');
+                el.className = 'theme-flash';
+                document.body.appendChild(el);
+                el.addEventListener('animationend', () => el.remove(), { once: true });
+            }
+        }
+        applyTheme(saved || sys, false);
+
+        btn.addEventListener('click', () => {
+            applyTheme(html.dataset.theme === 'dark' ? 'light' : 'dark', true);
+        });
+
+        /* ── NAV SCROLL ── */
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40), { passive: true });
+
+        /* ── MOBILE MENU ── */
+        function toggleMob() { document.getElementById('mobMenu').classList.toggle('open'); }
+
+        /* ── SCROLL REVEAL ── */
+        const obs = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); } });
+        }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+        document.querySelectorAll('.fade-in,.slide-l,.slide-r,.scale-in').forEach(el => obs.observe(el));
+
+        /* ── HERO TITLE SHIMMER ── */
+        window.addEventListener('load', () => {
+            setTimeout(() => document.getElementById('heroTitle').classList.add('shimmer'), 900);
+        });
+
+        /* ── 3-D TILT on org cards ── */
+        document.querySelectorAll('.org-card').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const r = card.getBoundingClientRect();
+                const x = (e.clientX - r.left) / r.width - .5;
+                const y = (e.clientY - r.top) / r.height - .5;
+                card.style.transform = `perspective(700px) rotateY(${x * 9}deg) rotateX(${-y * 6}deg) translateY(-3px)`;
+            });
+            card.addEventListener('mouseleave', () => card.style.transform = '');
+        });
+
+        /* ── DATE CHECKER ── */
+        function checkDates() {
+            const now = new Date();
+            document.querySelectorAll('.date-card').forEach(card => {
+                const d = card.getAttribute('data-date');
+                if (d && new Date(d) < now) {
+                    card.classList.add('past');
+                }
+            });
+        }
+        checkDates();
+    </script>
 </body>
 
 </html>
