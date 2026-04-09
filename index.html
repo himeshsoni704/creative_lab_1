@@ -500,16 +500,17 @@
             min-width: 200px;
         }
 
+        /* ── INCREASED Creative Lab logo size ── */
         .logo-space {
-            width: 48px;
-            height: 48px;
-            border-radius: 10px;
+            width: 120px;
+            height: 120px;
+            border-radius: 12px;
             background: var(--surface2);
             border: 1px solid var(--border-h);
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 6px;
+            padding: 8px;
             overflow: hidden;
             flex-shrink: 0;
             box-shadow: 0 4px 12px var(--shadow);
@@ -1030,9 +1031,10 @@
             transition: transform .25s, border-color .25s, box-shadow .25s, background .4s;
         }
 
-        .date-card.past {
-            opacity: .38
-        }
+        .date-card.past .date-label,
+.date-card.past .date-value {   /* ← add this line */
+    text-decoration: line-through;
+}
 
         .date-card.hi {
             background: var(--accent);
@@ -1156,9 +1158,10 @@
             box-shadow: 0 8px 30px var(--shadow)
         }
 
+        /* ── INCREASED org avatar / photo size ── */
         .org-av {
-            width: 56px;
-            height: 56px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             background: linear-gradient(135deg, var(--surface2), var(--surface));
             border: 1px solid var(--border);
@@ -1166,7 +1169,7 @@
             align-items: center;
             justify-content: center;
             font-family: var(--body);
-            font-size: 14px;
+            font-size: 18px;
             font-weight: 600;
             color: var(--text-m);
             margin-bottom: 1.25rem;
@@ -1251,9 +1254,10 @@
             gap: .75rem
         }
 
+        /* ── INCREASED TPC chair avatar size ── */
         .adv-av {
-            width: 38px;
-            height: 38px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             background: var(--surface2);
             border: 1px solid var(--border);
@@ -1565,6 +1569,30 @@
         .mob-menu a:hover {
             color: var(--text)
         }
+
+        /* ── PDF button style ── */
+        .btn-pdf {
+            background: transparent;
+            color: var(--accent);
+            font-family: var(--body);
+            font-size: 13px;
+            font-weight: 600;
+            padding: .75rem 1.75rem;
+            border-radius: 6px;
+            border: 1px solid var(--accent);
+            text-decoration: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            transition: background .2s, color .2s, transform .2s;
+        }
+
+        .btn-pdf:hover {
+            background: var(--accent);
+            color: #fff;
+            transform: translateY(-1px)
+        }
     </style>
 </head>
 
@@ -1585,7 +1613,7 @@
                 <div class="tog-knob"></div>
             </button>
             <a class="nav-cta"
-                href="https://edas.info/login.php?rurl=aHR0cHM6Ly9lZGFzLmluZm8vbmV3UGFwZXIucGhwP2M9MzUwMzkmdHJhY2s9MTM2NDc5"
+                href="https://qsp-ai-metatwin26.hotcrp.com/"
                 target="_blank" rel="noopener">Submit →</a>
             <button class="nav-mob-btn" onclick="toggleMob()" aria-label="Menu">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1604,8 +1632,7 @@
         <a href="#dates" onclick="toggleMob()">Dates</a>
         <a href="#committee" onclick="toggleMob()">Committee</a>
         <a href="#contact" onclick="toggleMob()">Contact</a>
-        <a href="#" target="_blank" rel="noopener" style="color:var(--accent);border:none;margin-top:.5rem">Submit Paper
-            →</a>
+        <a href="https://qsp-ai-metatwin26.hotcrp.com/" target="_blank" rel="noopener" style="color:var(--accent);border:none;margin-top:.5rem">Submit Paper →</a>
     </div>
 
     <!-- HERO -->
@@ -1630,7 +1657,7 @@
                     Systems (QSP-AI-MetaTwin). Co-located with IWQoS 2026.</p>
                 <div class="hero-actions">
                     <a class="btn-primary"
-                        href="https://edas.info/login.php?rurl=aHR0cHM6Ly9lZGFzLmluZm8vbmV3UGFwZXIucGhwP2M9MzUwMzkmdHJhY2s9MTM2NDc5"
+                        href="https://qsp-ai-metatwin26.hotcrp.com/"
                         target="_blank" rel="noopener">Submit Paper →</a>
                     <a class="btn-ghost" href="#cfp">Call for Papers</a>
                 </div>
@@ -1643,8 +1670,7 @@
                         2026</span></div>
                 <div class="hero-meta-item"><span class="meta-label">Proceedings</span><span class="meta-value">IEEE
                         Xplore</span></div>
-                <div class="hero-meta-item"><span class="meta-label">Submission</span><span class="meta-value">via
-                        TBD</span>
+                <div class="hero-meta-item"><span class="meta-label">Submission</span><span class="meta-value">via HotCRP</span>
                 </div>
             </div>
         </div>
@@ -1737,8 +1763,14 @@
                     <div class="eyebrow">Call for Papers</div>
                     <h2 class="section-title">Topics of<br>Interest</h2>
                 </div>
-                <p class="section-desc slide-r">Integrating QoS management with security and privacy mechanisms in
-                    AI-driven ecosystems.</p>
+                <div class="slide-r" style="display:flex;flex-direction:column;gap:.75rem;align-items:flex-end;">
+                    <p class="section-desc" style="max-width:380px;">Integrating QoS management with security and privacy mechanisms in
+                        AI-driven ecosystems.</p>
+                    <a class="btn-pdf" href="ieee.pdf" target="_blank" rel="noopener">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+                        Download CFP (PDF)
+                    </a>
+                </div>
             </div>
             <div class="topics-grid">
                 <div class="topic-card scale-in"> <span class="topic-n">01</span>
@@ -1772,29 +1804,30 @@
                 <div>
                     <div class="sub-title">Submission Guidelines</div>
                     <p style="font-size: 14px; color: var(--text-m); line-height: 1.8; margin-bottom: 1.2rem;">
-                        Submitted papers must be original, unpublished, and not under review elsewhere. Papers should
-                        follow
-                        the IEEE conference paper format.
+                        All workshop papers must be original, unpublished, and follow the <strong style="color:var(--text)">IEEE conference format</strong>, with a maximum length of <strong style="color:var(--text)">8 single-spaced, double-column pages</strong> (10-point font), including references and appendices. Templates are available at <a href="https://template-selector.ieee.org/" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;">template-selector.ieee.org</a> (select "Conferences").
                     </p>
                     <ul class="sub-list" style="margin-bottom: 1.5rem;">
-                        <li>Regular papers: up to 6 pages</li>
-                        <li>Short/Vision/Industry papers: up to 4 pages</li>
+                        <li>Maximum 8 pages (including references and appendices)</li>
+                        <li>Double-blind review — no author names or affiliations</li>
+                        <li>No identifying self-references; non-compliant papers rejected without review</li>
+                        <li>Submissions must be PDF files via HotCRP</li>
                     </ul>
                     <p style="font-size: 14px; color: var(--text-m); line-height: 1.8;">
-                        All submissions will undergo peer review by the Workshop Technical Program Committee. Accepted
-                        papers will be published in IEEE conference proceedings and submitted to IEEE Xplore (subject to
-                        IEEE policies).
+                        Accepted papers will be published in IEEE conference proceedings and submitted to IEEE Xplore (subject to IEEE policies).
                     </p>
                 </div>
                 <div class="sub-actions">
                     <a class="btn-primary" style="text-align:center"
-                        href="https://edas.info/login.php?rurl=aHR0cHM6Ly9lZGFzLmluZm8vbmV3UGFwZXIucGhwP2M9MzUwMzkmdHJhY2s9MTM2NDc5"
-                        target="_blank" rel="noopener">Submission
-                        Platform (TBD) →</a>
+                        href="https://qsp-ai-metatwin26.hotcrp.com/"
+                        target="_blank" rel="noopener">Submit via HotCRP →</a>
                     <a class="btn-ghost" style="text-align:center"
-                        href="https://www.ieee.org/conferences/publishing/templates.html" target="_blank"
-                        rel="noopener">IEEE
-                        Template</a>
+                        href="https://template-selector.ieee.org/" target="_blank"
+                        rel="noopener">IEEE Template</a>
+                    <a class="btn-pdf" style="text-align:center;justify-content:center"
+                        href="ieee.pdf" target="_blank" rel="noopener">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+                        Call for Papers (PDF)
+                    </a>
                 </div>
             </div>
         </div>
@@ -2124,15 +2157,17 @@
         });
 
         /* ── DATE CHECKER ── */
-        function checkDates() {
-            const now = new Date();
-            document.querySelectorAll('.date-card').forEach(card => {
-                const d = card.getAttribute('data-date');
-                if (d && new Date(d) < now) {
-                    card.classList.add('past');
-                }
-            });
+       function checkDates() {
+    const now = new Date();  // today's date/time
+
+    document.querySelectorAll('.date-card').forEach(card => {
+        const d = card.getAttribute('data-date');  // e.g. "2026-04-30"
+        
+        if (d && new Date(d) < now) {
+            card.classList.add('past');  // adds CSS class → triggers styling
         }
+    });
+}
         checkDates();
     </script>
 </body>
