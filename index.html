@@ -1843,7 +1843,7 @@
                 </div>
             </div>
             <div class="dates-grid">
-                <div class="date-card fade-in" data-date="2026-04-30"> <span class="date-n">01</span>
+                <div class="date-card fade-in" data-date="2026-05-10"> <span class="date-n">01</span>
                     <div class="date-value">May 10, 2026</div>
                     <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Full+Paper+Submission+-+QSP-AI-MetaTwin+2026&dates=20260510/20260510&details=Submission+deadline+for+the+Workshop+on+QoS-Aware+Security+and+Privacy+for+AI-Driven+Digital+Twin+and+Metaverse+Systems+(QSP-AI-MetaTwin).&location=Online"
                         rel="noopener" target="_blank" style="text-decoration: none;">
@@ -2164,17 +2164,24 @@
         });
 
         /* ── DATE CHECKER ── */
-       function checkDates() {
-    const now = new Date();  // today's date/time
+       async function checkDates() {
+    let now;
+    try {
+        const res = await fetch('https://worldtimeapi.org/api/timezone/UTC');
+        const data = await res.json();
+        now = new Date(data.utc_datetime);
+    } catch (e) {
+        now = new Date(); // fallback to local time if API fails
+    }
 
     document.querySelectorAll('.date-card').forEach(card => {
-        const d = card.getAttribute('data-date');  // e.g. "2026-04-30"
-        
+        const d = card.getAttribute('data-date');
         if (d && new Date(d) < now) {
-            card.classList.add('past');  // adds CSS class → triggers styling
+            card.classList.add('past');
         }
     });
 }
+checkDates();
         checkDates();
     </script>
 </body>
